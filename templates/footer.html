@@ -1,0 +1,65 @@
+<div class="footer card">
+    <h3>
+        {% if request.COOKIES.language == "AR" %}
+            تابعنا
+        {% else %}
+            Follow Us
+        {% endif %}
+    </h3>
+    <div class="footer-body">
+        <div class="footer-socials">
+            <a class="footer-social-icon">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a class="footer-social-icon">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a class="footer-social-icon">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+            <a class="footer-social-icon">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </div>
+        <div class="footer-nav">
+            <a class="footer-nav-item" href="{% url 'index' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    الرئيسية
+                {% else %}
+                    Home
+                {% endif %}
+            </a>
+            <a class="footer-nav-item" href="{% url 'about-us' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    عنا
+                {% else %}
+                    About Us
+                {% endif %}
+            </a>
+            <a class="footer-nav-item" href="{% url 'services' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    خدماتنا
+                {% else %}
+                    Services
+                {% endif %}
+            </a>
+            <a class="footer-nav-item" href="{% url 'fleet' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    اسطولنا
+                {% else %}
+                    Fleet
+                {% endif %}
+            </a>
+            <a class="footer-nav-item" href="{% url 'contact-us' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    تواصل معنا
+                {% else %}
+                    Contact Us
+                {% endif %}
+            </a>
+        </div>
+    </div>
+</div>
+<div class="footer-footer">
+    © 2023 by Abdelrahman Hamed | All Rights Reserved					
+</div>

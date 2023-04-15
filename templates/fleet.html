@@ -1,0 +1,742 @@
+{% load static %}
+{% load extras %}
+<!DOCTYPE html>
+{% if request.COOKIES.language == "AR" %}
+<html lang="ar" dir="rtl">
+{% else %}
+<html lang="en" dir="ltr">
+{% endif %}
+
+<head>
+    <title>LimousinCairo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{% static 'limo_app/images/logo.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/main/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/fleet/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/section/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/navbar/styles.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'limo_app/libs/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+</head>
+
+<body>
+    <div class="nav-wrapper h-100">
+        {% include 'navbar.html' %}
+    </div>
+    <div class="body-wrapper menuDisplayed">
+        <div id="main-body" class="main-body col-lg-12">
+            <div class="parallax">
+                <img src="{% static 'limo_app/images/logo2.png' %}" alt="...">
+            </div>
+            <div class="fleet-comp">
+                <h2>
+                    {% if request.COOKIES.language == "AR" %}
+                    ليموزين القاهرة
+                    {% else %}
+                    Limousin Cairo
+                    {% endif %}
+                </h2>
+                <br>
+                <p>
+                    {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                    {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                    {% endif %}
+                </p>
+                <!-- {%if Categories%}
+                    <div class="tabs">
+                        {% for cat in Categories %}
+                            {% if forloop.first %}
+                                <div class="tab active" onclick="switchTab('{{ forloop.counter0 }}')">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{cat.title_ar}}
+                                    {% else %}
+                                        {{cat.title}}
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="tab" onclick="switchTab('{{ forloop.counter0 }}')">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{cat.title_ar}}
+                                    {% else %}
+                                        {{cat.title}}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% for cat in Categories %}
+                        {% if forloop.first %}
+                            <div class="fleet-section active">
+                                {%if cat.car_set.all%}
+                                    {% for car in cat.car_set.all %}
+                                        <div class="fleet-item">
+                                            <img src="{{car.image.url}}" class="car-img" alt="...">
+                                            <br>
+                                            <div class="car-details">
+                                                <div class="car-name">
+                                                    <span>
+                                                        {% if request.COOKIES.language == "AR" %}
+                                                            {{car.name_ar}}
+                                                        {% else %}
+                                                            {{car.name}}
+                                                        {% endif %}
+                                                    </span>
+                                                    <div class="car-model">
+                                                        {{car.model}}
+                                                    </div>
+                                                </div>
+                                                <div class="car-specs">
+                                                    <div class="car-specs-row">
+                                                        <div>
+                                                            <i class="bi bi-person-fill"></i>
+                                                            {{car.person_count}} {% if request.COOKIES.language == "AR" %}
+                                                                اشخاص
+                                                            {% else %}
+                                                                Persons
+                                                            {% endif %}
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-briefcase-fill"></i>
+                                                            {{car.bag_count}} {% if request.COOKIES.language == "AR" %}
+                                                                حقائب
+                                                            {% else %}
+                                                                Bags
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="car-specs-row">
+                                                        <div>
+                                                            <i class="bi bi-calendar-check-fill"></i>
+                                                            {{car.reserve_days}} {% if request.COOKIES.language == "AR" %}
+                                                                يوم مقدما
+                                                            {% else %}
+                                                                Days in advance
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="car-details-separator"></div>
+                                                <div class="car-details-footer">
+                                                    <button type="button" class="btn" onclick="showModal(1)">
+                                                        {% if request.COOKIES.language == "AR" %}
+                                                            احجز الان
+                                                        {% else %}
+                                                            Reserve Now
+                                                        {% endif %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if request.COOKIES.language == "AR" %}
+                                        لا يوجد سيارات من هذة الفئة حاليا
+                                    {% else %}
+                                        No Cars are currently Available for this Category  
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="fleet-section">
+                                {%if cat.car_set.all%}
+                                    {% for car in cat.car_set.all %}
+                                        <div class="fleet-item">
+                                            <img src="{{car.image.url}}" class="car-img" alt="...">
+                                            <br>
+                                            <div class="car-details">
+                                                <div class="car-name">
+                                                    <span>
+                                                        {% if request.COOKIES.language == "AR" %}
+                                                            {{car.name_ar}}
+                                                        {% else %}
+                                                            {{car.name}}
+                                                        {% endif %}
+                                                    </span>
+                                                    <div class="car-model">
+                                                        {{car.model}}
+                                                    </div>
+                                                </div>
+                                                <div class="car-specs">
+                                                    <div class="car-specs-row">
+                                                        <div>
+                                                            <i class="bi bi-person-fill"></i>
+                                                            {{car.person_count}} {% if request.COOKIES.language == "AR" %}
+                                                                اشخاص
+                                                            {% else %}
+                                                                Persons
+                                                            {% endif %}
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-briefcase-fill"></i>
+                                                            {{car.bag_count}} {% if request.COOKIES.language == "AR" %}
+                                                                حقائب
+                                                            {% else %}
+                                                                Bags
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="car-specs-row">
+                                                        <div>
+                                                            <i class="bi bi-calendar-check-fill"></i>
+                                                            {{car.reserve_days}} {% if request.COOKIES.language == "AR" %}
+                                                                يوم مقدما
+                                                            {% else %}
+                                                                Days in advance
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="car-details-separator"></div>
+                                                <div class="car-details-footer">
+                                                    <button type="button" class="btn" onclick="showModal(1)">
+                                                        {% if request.COOKIES.language == "AR" %}
+                                                            احجز الان
+                                                        {% else %}
+                                                            Reserve Now
+                                                        {% endif %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if request.COOKIES.language == "AR" %}
+                                        لا يوجد سيارات من هذة الفئة حاليا
+                                    {% else %}
+                                        No Cars are currently Available for this Category  
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %} -->
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab(0)">
+                        {% if request.COOKIES.language == "AR" %}
+                            في اي بي
+                        {% else %}
+                            VIP
+                        {% endif %}
+                    </div>
+                    <div class="tab" onclick="switchTab(1)">
+                        {% if request.COOKIES.language == "AR" %}
+                            فان
+                        {% else %}
+                            VAN
+                        {% endif %}
+                    </div>
+                    <div class="tab" onclick="switchTab(2)">
+                        {% if request.COOKIES.language == "AR" %}
+                            سيدان
+                        {% else %}
+                            SEDAN
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="fleet-section active">
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car1.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car3.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car2.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car1.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car3.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet-section">
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car1.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car3.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet-section">
+                    <div class="fleet-item">
+                        <img src="{% static 'limo_app/images/car3.png' %}" class="car-img" alt="...">
+                        <br>
+                        <div class="car-details">
+                            <div class="car-name">
+                                <span>
+                                    {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                    {% else %}
+                                    Mercedes E300
+                                    {% endif %}
+                                </span>
+                                <div class="car-model">
+                                    2020
+                                </div>
+                            </div>
+                            <div class="car-specs">
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-person-fill"></i>
+                                        4 {% if request.COOKIES.language == "AR" %}
+                                        اشخاص
+                                        {% else %}
+                                        Persons
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-briefcase-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        حقائب
+                                        {% else %}
+                                        Bags
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="car-specs-row">
+                                    <div>
+                                        <i class="bi bi-calendar-check-fill"></i>
+                                        2 {% if request.COOKIES.language == "AR" %}
+                                        يومان مقدما
+                                        {% else %}
+                                        Days in advance
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-details-separator"></div>
+                            <div class="car-details-footer">
+                                <button type="button" class="btn" onclick="showModal(1)">
+                                    {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                    {% else %}
+                                    Reserve Now
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    {% include 'add-ons.html' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'limo_app/libs/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'limo_app/fleet/scripts.js' %}"></script>
+    <script src="{% static 'limo_app/section/scripts.js' %}"></script>
+    <script src="{% static 'limo_app/navbar/scripts.js' %}"></script>
+    <script src="{% static 'limo_app/main/scripts.js' %}"></script>
+</body>
+
+</html>

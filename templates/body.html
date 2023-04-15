@@ -1,0 +1,659 @@
+{% load static %}
+{% load extras %}
+<div class="container-fluid sections">
+    <div class="row section" id="section-1">
+        <div class="col-sm-10 m-auto">
+            <h2> 
+                {% if request.COOKIES.language == "AR" %}
+                    ليموزين القاهرة
+                {% else %}
+                    Limousin Cairo
+                {% endif %}
+            </h2>
+            <br>
+            <p> 
+                {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                {% endif %}
+            </p>
+            <div class="services-container">
+                <div class="service-icon">
+                    <img src="{% static 'limo_app/images/24-hours-phone-service.png' %}" alt="...">
+                    <br>
+                    <h4>
+                        {% if request.COOKIES.language == "AR" %}
+                            خدمة 24 ساعة يوميا
+                        {% else %}
+                            24/7 Service
+                        {% endif %}
+                    </h4>
+                </div>
+                <div class="service-icon">
+                    <img src="{% static 'limo_app/images/around-the-world.png' %}" alt="...">
+                    <br>
+                    <h4>
+                        {% if request.COOKIES.language == "AR" %}
+                            نتواجد حول العالم
+                        {% else %}
+                            Around the Globe
+                        {% endif %}
+                    </h4>
+                </div>
+                <div class="service-icon">
+                    <img src="{% static 'limo_app/images/traffic-jam.png' %}" alt="...">
+                    <br>
+                    <h4>
+                        {% if request.COOKIES.language == "AR" %}
+                            اسطول من الرفاهية
+                        {% else %}
+                            Luxurious Fleet
+                        {% endif %}
+                    </h4>
+                </div>
+                <div class="service-icon">
+                    <img src="{% static 'limo_app/images/save-money.png' %}" alt="...">
+                    <br>
+                    <h4>
+                        {% if request.COOKIES.language == "AR" %}
+                            اسعار منافسة
+                        {% else %}
+                            Competitive Prices
+                        {% endif %}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row section" id="section-2">
+        <div class="section-icon">
+            <i class="bi bi-question-lg"></i>
+        </div>
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2> 
+                {% if request.COOKIES.language == "AR" %}
+                    خدماتنا
+                {% else %}
+                    Services
+                {% endif %}
+            </h2>
+            <br>
+            <p> 
+                {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                {% endif %}
+            </p>
+            <div class="services-container">
+                <div class="services-item">
+                    <img src="{% static 'limo_app/images/service_2.jpg' %}" class="services-img">
+                    <div class="services-img-overlay">
+                        <p class="fw-bold">
+                            {% if request.COOKIES.language == "AR" %}
+                                الاسكندرية
+                            {% else %}
+                                Alexandria
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if request.COOKIES.language == "AR" %}
+                                لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
+                            {% else %}
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            {% endif %}
+                        </p>
+                        <a type="button" class="btn read-more" href="{% url 'service' %}">
+                            {% if request.COOKIES.language == "AR" %}
+                                المزيد
+                            {% else %}
+                                Read More
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="services-item">
+                    <img src="{% static 'limo_app/images/service_1.jpg' %}" class="services-img">
+                    <div class="services-img-overlay">
+                        <p class="fw-bold">
+                            {% if request.COOKIES.language == "AR" %}
+                                الاسكندرية
+                            {% else %}
+                                Alexandria
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if request.COOKIES.language == "AR" %}
+                                لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
+                            {% else %}
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            {% endif %}
+                        </p>
+                        <a type="button" class="btn read-more" href="{% url 'service' %}">
+                            {% if request.COOKIES.language == "AR" %}
+                                المزيد
+                            {% else %}
+                                Read More
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="services-item">
+                    <img src="{% static 'limo_app/images/service_3.jpg' %}" class="services-img">
+                    <div class="services-img-overlay">
+                        <p class="fw-bold">
+                            {% if request.COOKIES.language == "AR" %}
+                                الاسكندرية
+                            {% else %}
+                                Alexandria
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if request.COOKIES.language == "AR" %}
+                                لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
+                            {% else %}
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            {% endif %}
+                        </p>
+                        <a type="button" class="btn read-more" href="{% url 'service' %}">
+                            {% if request.COOKIES.language == "AR" %}
+                                المزيد
+                            {% else %}
+                                Read More
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a type="button" class="btn read-more-outter" href="{% url 'services' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    مشاهدة الكل
+                    <i class="bi bi-arrow-left"></i>
+                {% else %}
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    <div class="row section" id="section-3">
+        <div class="section-icon">
+            <i class="bi bi-car-front-fill text-white"></i>
+        </div>
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2>
+                {% if request.COOKIES.language == "AR" %}
+                    اسطولنا
+                {% else %}
+                    Fleet
+                {% endif %}
+            </h2>
+            <br>
+            <p> 
+                {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                {% endif %}
+            </p>
+            <div class="fleet-container">
+                <div class="fleet-item">
+                    <img src="{% static 'limo_app/images/car2.png' %}" class="car-img" alt="...">
+                    <br>
+                    <div class="car-details">
+                        <div class="car-name">
+                            <span>
+                                {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                {% else %}
+                                    Mercedes E300
+                                {% endif %}
+                            </span>
+                            <div class="car-model">
+                                2020
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-person-fill"></i>
+                                    4   {% if request.COOKIES.language == "AR" %}
+                                            اشخاص
+                                        {% else %}
+                                            Persons
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    <i class="bi bi-briefcase-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            حقائب
+                                        {% else %}
+                                            Bags
+                                        {% endif %}
+                                </div>
+                            </div>
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-calendar-check-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            يومان مقدما
+                                        {% else %}
+                                            Days in advance
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="car-details-separator"></div>
+                        <div class="car-details-footer">
+                            <button type="button" class="btn" onclick="showModal(1)">
+                                {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                {% else %}
+                                    Reserve Now
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet-item">
+                    <img src="{% static 'limo_app/images/car1.png' %}" class="car-img" alt="...">
+                    <br>
+                    <div class="car-details">
+                        <div class="car-name">
+                            <span>
+                                {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                {% else %}
+                                    Mercedes E300
+                                {% endif %}
+                            </span>
+                            <div class="car-model">
+                                2020
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-person-fill"></i>
+                                    4   {% if request.COOKIES.language == "AR" %}
+                                            اشخاص
+                                        {% else %}
+                                            Persons
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    <i class="bi bi-briefcase-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            حقائب
+                                        {% else %}
+                                            Bags
+                                        {% endif %}
+                                </div>
+                            </div>
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-calendar-check-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            يومان مقدما
+                                        {% else %}
+                                            Days in advance
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="car-details-separator"></div>
+                        <div class="car-details-footer">
+                            <button type="button" class="btn" onclick="showModal(1)">
+                                {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                {% else %}
+                                    Reserve Now
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet-item">
+                    <img src="{% static 'limo_app/images/car3.png' %}" class="car-img" alt="...">
+                    <br>
+                    <div class="car-details">
+                        <div class="car-name">
+                            <span>
+                                {% if request.COOKIES.language == "AR" %}
+                                    ميرسيدس اي 300
+                                {% else %}
+                                    Mercedes E300
+                                {% endif %}
+                            </span>
+                            <div class="car-model">
+                                2020
+                            </div>
+                        </div>
+                        <div class="car-specs">
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-person-fill"></i>
+                                    4   {% if request.COOKIES.language == "AR" %}
+                                            اشخاص
+                                        {% else %}
+                                            Persons
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    <i class="bi bi-briefcase-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            حقائب
+                                        {% else %}
+                                            Bags
+                                        {% endif %}
+                                </div>
+                            </div>
+                            <div class="car-specs-row">
+                                <div>
+                                    <i class="bi bi-calendar-check-fill"></i>
+                                    2   {% if request.COOKIES.language == "AR" %}
+                                            يومان مقدما
+                                        {% else %}
+                                            Days in advance
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="car-details-separator"></div>
+                        <div class="car-details-footer">
+                            <button type="button" class="btn" onclick="showModal(1)">
+                                {% if request.COOKIES.language == "AR" %}
+                                    احجز الان
+                                {% else %}
+                                    Reserve Now
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a type="button" class="btn read-more-outter" href="{% url 'fleet' %}">
+                {% if request.COOKIES.language == "AR" %}
+                    مشاهدة الكل
+                    <i class="bi bi-arrow-left"></i>
+                {% else %}
+                    View All
+                    <i class="bi bi-arrow-right"></i>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+    <div class="row section" id="sepcial-section">
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2>
+                {% if request.COOKIES.language == "AR" %}
+                    اعجبناك !!!
+                {% else %}
+                    Like us Already
+                {% endif %}
+            </h2>
+            <br>
+            <p>
+                {% if request.COOKIES.language == "AR" %}
+                    لا تضيع الوقت و لا تضيع رحلتك
+                {% else %}
+                    Dont waste time and dont miss your flight
+                {% endif %} <i class="bi bi-airplane-fill"></i>, 
+                {% if request.COOKIES.language == "AR" %}
+                    ابدا بحجز رحلتك الان
+                {% else %}
+                    starting booking your trip now.
+                {% endif %}
+            </p>
+            <button type="button" class="btn read-more-outter special mt-4" onclick="showModal(1)">
+                {% if request.COOKIES.language == "AR" %}
+                    احجز الان
+                {% else %}
+                    Reserve Now
+                {% endif %}
+            </button>
+        </div>
+    </div>
+    <div class="row section" id="section-4">
+        <div class="section-icon">
+            <i class="bi bi-geo-alt"></i>
+        </div>
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2> 
+                {% if request.COOKIES.language == "AR" %}
+                    موقعنا
+                {% else %}
+                    Main office
+                {% endif %} 
+            </h2>
+            <br>
+            <iframe class="map" src="{{Map.link}}" allowfullscreen="true" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="row section driver-section" id="section-5">
+        <div class="section-icon">
+            <i class="bi bi-person-vcard-fill text-white"></i>
+        </div>
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2> 
+                {% if request.COOKIES.language == "AR" %}
+                    السائقين
+                {% else %}
+                    Drivers
+                {% endif %} 
+            </h2>
+            <br>
+            <p>
+                <img src="https://www.leicesterexecutivechauffeurs.co.uk/newsite/wp-content/uploads/2014/03/chauffeurs-hire-966695_960_720.jpg"
+                    alt="Longtail boat in Thailand">
+                {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                {% endif %}
+            </p>
+            <br>
+        </div>
+    </div>
+    <div class="row section" id="section-6">
+        <div class="section-icon">
+            <i class="bi bi-headset"></i>
+        </div>
+        <div class="col-md-10 m-auto pt-5 pb-5">
+            <h2>
+                {% if request.COOKIES.language == "AR" %}
+                    تواصل معنا
+                {% else %}
+                    Get in Touch
+                {% endif %}
+            </h2>
+            <br>
+            <div class="contact-container">
+                <div class="contact-social">
+                    <h3>
+                        {% if request.COOKIES.language == "AR" %}
+                            عن طريق السوشيال ميدايا
+                        {% else %}
+                            Via Socials
+                        {% endif %}
+                    </h3>
+                    <div class="d-flex justify-content-around align-items-center mt-5">
+                        <a class="contact-social-item facebook" onmouseenter="animateSocial(this, true)" onmouseleave="animateSocial(this, false)">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a class="contact-social-item twitter" onmouseenter="animateSocial(this, true)" onmouseleave="animateSocial(this, false)">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a class="contact-social-item whatsapp" onmouseenter="animateSocial(this, true)" onmouseleave="animateSocial(this, false)">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a class="contact-social-item instagram" onmouseenter="animateSocial(this, true)" onmouseleave="animateSocial(this, false)">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="vert-line"></div>
+                <div class="contact-booking">
+                    <h3>
+                        {% if request.COOKIES.language == "AR" %}
+                            عن طريق هاتفنا او البريد الاليكتروني
+                        {% else %}
+                            Via Email or Phone
+                        {% endif %}
+                    </h3>
+                    <div class="d-flex justify-content-around align-items-center mt-5">
+                        <div class="contact-booking-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>
+                                {% if request.COOKIES.language == "AR" %}
+                                    شارع جمال عبد الناصر عمارة 632
+                                {% else %}
+                                    632 Gamal Abdel Nasser
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="contact-booking-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <span>0123456789</span>
+                        </div>
+                        <div class="contact-booking-item">
+                            <i class="bi bi-envelope-at-fill"></i>
+                            <span>test@test.com</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn read-more-outter mt-0" onclick="showModal(2)">
+                        {% if request.COOKIES.language == "AR" %}
+                            الشكاوي و المقترحات
+                        {% else %}
+                            Complaines & suggesstions
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row section" id="section-7">
+        <div class="section-icon">
+            <i class="bi bi-quote text-white"></i>
+        </div>
+        <div class="col-sm-10 m-auto pt-5 pb-5">
+            <h2>
+                {% if request.COOKIES.language == "AR" %}
+                    اراء العملاء
+                {% else %}
+                    Testimonials
+                {% endif %}
+            </h2>
+            <br>
+            <p>
+                {% if request.COOKIES.language == "AR" %}
+                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                    شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                    الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                    (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                    الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                {% else %}
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.
+                {% endif %} 
+            </p>
+            <br>
+            <div class="testimonials-container">
+                <div class="testimonials-item card text-center">
+                    <i class="bi bi-quote"></i>
+                    <div class="card-body blockquote">
+                        <p class="card-text">
+                            {% if request.COOKIES.language == "AR" %}
+                                افضل شركة علي الاطلاق
+                            {% else %}
+                                Best Company ever
+                            {% endif %}
+                        </p>
+                        <footer class="blockquote-footer">
+                            <cite title="Source Title">
+                                {% if request.COOKIES.language == "AR" %}
+                                    محمد
+                                {% else %}
+                                    Mohamed
+                                {% endif %}
+                            </cite>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{% load static %}
+{% load extras %}
+<!DOCTYPE html>
+{% if request.COOKIES.language == "AR" %}
+    <html lang="ar" dir="rtl">
+{% else %}
+    <html lang="en" dir="ltr">
+{% endif %}
+
+<head>
+    <title>LimousinCairo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{% static 'limo_app/images/logo.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/main/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/section/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/navbar/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'limo_app/libs/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+</head>
+
+<body>
+    <div class="nav-wrapper h-100">
+        {% include 'navbar.html' %}
+    </div>
+    <div class="body-wrapper menuDisplayed">
+        <div id="main-body" class="main-body col-lg-12">
+            <div class="parallax">
+                <img src="{% static 'limo_app/images/logo2.png' %}" alt="...">
+            </div>
+            {% include 'body.html' %}
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    <div class="sections-buttons">
+        <div class="section-item" data-bs-section="section-1" onclick="scrollToSection('section-1')"></div>
+        <div class="section-item" data-bs-section="section-2" onclick="scrollToSection('section-2')"></div>
+        <div class="section-item" data-bs-section="section-3" onclick="scrollToSection('section-3')"></div>
+        <div class="section-item" data-bs-section="section-4" onclick="scrollToSection('section-4')"></div>
+        <div class="section-item" data-bs-section="section-5" onclick="scrollToSection('section-5')"></div>
+        <div class="section-item" data-bs-section="section-6" onclick="scrollToSection('section-6')"></div>
+        <div class="section-item" data-bs-section="section-7" onclick="scrollToSection('section-7')"></div>
+    </div>
+    {% include 'add-ons.html' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'limo_app/libs/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'limo_app/section/scripts.js' %}"></script>
+    <script src="{% static 'limo_app/navbar/scripts.js' %}"></script>
+    <script src="{% static 'limo_app/main/scripts.js' %}"></script>
+</body>
+
+</html>

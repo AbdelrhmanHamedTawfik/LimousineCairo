@@ -1,0 +1,283 @@
+{% load static %}
+{% load extras %}
+<i id="top-button" class="bi bi-arrow-up-circle-fill top-button" onclick="scrollToTop()"></i>
+<nav class="social">
+    <ul class="social-list">
+        <a class="social-link" href="#" target="_blank">
+            <li class="social-item">
+                {% if request.COOKIES.language == "AR" %}
+                    فيسبوك
+                {% else %}
+                    Facebook
+                {% endif %}
+                <i class="bi bi-facebook"></i>
+            </li>
+        </a>
+        <a class="social-link" href="#" target="_blank">
+            <li class="social-item">
+                {% if request.COOKIES.language == "AR" %}
+                    تويتر
+                {% else %}
+                    Twitter
+                {% endif %}
+                <i class="bi bi-twitter"></i>
+            </li>
+        </a>
+        <a class="social-link" href="#" target="_blank">
+            <li class="social-item">
+                {% if request.COOKIES.language == "AR" %}
+                    واتساب
+                {% else %}
+                    Whatsapp
+                {% endif %}
+                <i class="bi bi-whatsapp"></i>
+            </li>
+        </a>
+        <a class="social-link" href="#" target="_blank">
+            <li class="social-item">
+                {% if request.COOKIES.language == "AR" %}
+                    انستجرام
+                {% else %}
+                    Instagram
+                {% endif %}
+                <i class="bi bi-instagram"></i>
+            </li>
+        </a>
+        <a class="social-link" href="#" target="_blank">
+            <li class="social-item">012234567890<i class="bi bi-telephone-fill"></i></li>
+        </a>
+    </ul>
+</nav>
+<div class="modal fade" id="bookModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="position-relative">
+            <div id="booking-modal" class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bookModalLabel">
+                        {% if request.COOKIES.language == "AR" %}
+                            حجز الرحلات
+                        {% else %}
+                            Booking
+                        {% endif %}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="needs-validation" class="needs-validation row g-3" novalidate>
+                        <div class="col-md-6">
+                            <label for="name-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    الاسم
+                                {% else %}
+                                    Name
+                                {% endif %}
+                            </label>
+                            <input type="text" class="form-control" id="name-field" name="name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    هاتف التواصل
+                                {% else %}
+                                    Phone Number
+                                {% endif %}
+                            </label>
+                            <input type="tel" class="form-control" id="phone-field" name="phone" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="date-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    تاريخ الحجز
+                                {% else %}
+                                    Date
+                                {% endif %}
+                            </label>
+                            <input type="date" format="dd/mm/yyyy" class="form-control" id="date-field" name="date"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="car-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    نوع السيارة
+                                {% else %}
+                                    Car Type
+                                {% endif %}
+                            </label>
+                            <select id="car-field" class="form-select" name="car-type" title="Choose..." required>
+                                <option value="" hidden disabled selected>Choose...</option>
+                                <option value="VIP">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        في اي بي
+                                    {% else %}
+                                        VIP
+                                    {% endif %}
+                                </option>
+                                <option value="VAN">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        فان
+                                    {% else %}
+                                        VAN
+                                    {% endif %}
+                                </option>
+                                <option value="SEDAN">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        سيدان
+                                    {% else %}
+                                        SEDAN
+                                    {% endif %}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="details-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    تفاصيل الحجز
+                                {% else %}
+                                    Details
+                                {% endif %}
+                            </label>
+                            <textarea class="form-control" placeholder="i want to go airport from mohndseen"
+                                id="details-field" rows="5" name="details" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                        {% if request.COOKIES.language == "AR" %}
+                            اغلاق
+                        {% else %}
+                            Close
+                        {% endif %}
+                    </button>
+                    <button type="button" class="btn btn-outline-success" onclick="validateForm(1)">
+                        {% if request.COOKIES.language == "AR" %}
+                            تاكيد الحجز
+                        {% else %}
+                            Submit
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+            <div id="issue-modal" class="modal-content d-none">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="bookModalLabel">
+                        {% if request.COOKIES.language == "AR" %}
+                            الشكاوي و المقترحات
+                        {% else %}
+                            Complaines and Suggesstions
+                        {% endif %}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="needs-validation" class="needs-validation row g-3" novalidate>
+                        <div class="col-md-6">
+                            <label for="name-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    الاسم
+                                {% else %}
+                                    Name
+                                {% endif %}
+                            </label>
+                            <input type="text" class="form-control" id="name-field-2" name="name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    هاتف التواصل
+                                {% else %}
+                                    Phone Number
+                                {% endif %}
+                            </label>
+                            <input type="tel" class="form-control" id="phone-field-2" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="details-field" class="form-label">
+                                {% if request.COOKIES.language == "AR" %}
+                                    الشكاوي او المقترحات
+                                {% else %}
+                                    Complaines and Suggesstions
+                                {% endif %}
+                            </label>
+                            <textarea class="form-control" placeholder="i dont like the driver" id="details-field-2"
+                                rows="5" name="details" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                        {% if request.COOKIES.language == "AR" %}
+                            اغلاق
+                        {% else %}
+                            Close
+                        {% endif %}
+                    </button>
+                    <button type="button" class="btn btn-outline-success" onclick="validateForm(2)">
+                        {% if request.COOKIES.language == "AR" %}
+                            ارسال الشكوي
+                        {% else %}
+                            Submit
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+            <div id="success-screen" class="modal-content modal-layout-success">
+                <i class="bi bi-check-circle-fill"></i>
+                <h2>
+                    {% if request.COOKIES.language == "AR" %}
+                        تم ارسال الطلب بنجاح
+                    {% else %}
+                        Your Request Was sent successfully
+                    {% endif %}
+                </h2>
+                <h2>
+                    {% if request.COOKIES.language == "AR" %}
+                        سيقوم احد ممثلينا بالتواصل معكم في اقرب وقت
+                    {% else %}
+                        One of our operative will contact you soon
+                    {% endif %}
+                </h2>
+                <button type="button" class="btn btn-outline-danger mt-5 ps-5 pe-5" data-bs-dismiss="modal">
+                    {% if request.COOKIES.language == "AR" %}
+                        اغلاق
+                    {% else %}
+                        Close
+                    {% endif %}
+                </button>
+            </div>
+            <div id="fail-screen" class="modal-content modal-layout-fail">
+                <i class="bi bi-x-circle-fill"></i>
+                <h2>
+                    {% if request.COOKIES.language == "AR" %}
+                        حدث خطاء اثناء ارسال الطلب
+                    {% else %}
+                        Error Sending the request
+                    {% endif %}
+                </h2>
+                <h2>
+                    {% if request.COOKIES.language == "AR" %}
+                        الرجاء المحاولة في وقتا لاحق
+                    {% else %}
+                        Please try again later
+                    {% endif %}
+                </h2>
+                <button type="button" class="btn btn-outline-danger mt-5 ps-5 pe-5" data-bs-dismiss="modal">
+                    {% if request.COOKIES.language == "AR" %}
+                        اغلاق
+                    {% else %}
+                        Close
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loading-screen" class="loading-screen">
+    <img src="{% static 'limo_app/images/logo2.png' %}" alt="...">
+    <div class="text-center">
+        <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
