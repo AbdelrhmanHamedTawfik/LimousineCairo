@@ -31,7 +31,7 @@ body{
     display: none;
     position: fixed;
     height: 50px;
-    bottom: 50px;
+    bottom: 30px;
     z-index: 99;
     font-size: 50px;
     border: none;
@@ -45,11 +45,11 @@ body{
 }
 
 html[dir="rtl"] .top-button{
-    left: 50px;
+    left: 30px;
 }
 
 html[dir="ltr"] .top-button{
-    right: 50px;
+    right: 30px;
 }
 
 .top-button:hover {
@@ -85,8 +85,18 @@ html[dir="ltr"] .top-button{
     z-index: 1000;
 }
 
-html[dir="rtl"] .social-list{
+@media (max-width: 800px){
+    .social{
+        display: none;
+    }
+}
+
+html[dir="rtl"] .social{
     transform: translate(150px, 0);
+}
+
+html[dir="ltr"] .social{
+    transform: translate(-150px, 0);
 }
 
 html[dir="rtl"] .social-item{
@@ -104,7 +114,6 @@ html[dir="rtl"] .social-item:hover{
 
 .social-list {
     padding: 0px;
-    transform: translate(-150px, 0);
 }
 
 .social-link{
@@ -187,7 +196,7 @@ html[dir="rtl"] .social-item:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 400px;
+    min-width: 300px;
     margin-top: 20px;
 }
 
@@ -197,6 +206,8 @@ html[dir="rtl"] .social-item:hover{
     text-decoration: none;
     transition: 0.3s;
     font-weight: bold;
+    margin: 10px;
+    text-align: center;
 }
 
 .footer-nav-item:hover{
@@ -205,13 +216,12 @@ html[dir="rtl"] .social-item:hover{
 
 .footer-footer{
     background-color: rgb(211,174,102);
-    height: 30px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: bold;
+    padding: 10px;
 }
 
 .divider {

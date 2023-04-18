@@ -19,8 +19,8 @@ from django.conf.urls.static import static
 from LimousinCairo import settings
 
 urlpatterns = [
-    path('LimousinCairo/', include('lc_app.urls')),
-    path('LimousinCairo/admin/', admin.site.urls),
+    path('', include('lc_app.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -62,6 +62,21 @@ html[dir="ltr"] .list-unstyled{
     .sub-navbar{
         right: 0 !important;
         left: -10px;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .sub-navbar ul{
+        width: 100px;
+    }
+
+    .navbar-nav{
+        border-bottom: 2px solid;
+    }
+
+    .navbar .footer-socials{
+        display: flex !important;
     }
 }
 
@@ -93,11 +108,11 @@ html[dir="ltr"] .list-unstyled{
 }
 
 html[dir="rtl"] .sections-buttons{
-    left: 2px;
+    left: 2%;
 }
 
 html[dir="ltr"] .sections-buttons{
-    right: 2px;
+    right: 2%;
 }
 
 .section-item{

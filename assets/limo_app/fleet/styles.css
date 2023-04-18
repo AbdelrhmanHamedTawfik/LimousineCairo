@@ -20,13 +20,14 @@
 
 .tabs{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    max-width: 100%;
     margin-top: 20px;
 }
 
 .tab{
-    width: 150px;
+    min-width: 150px;
     height: 70px;
     border: 1px black solid;
     border-radius: 10px 10px 0 0;
@@ -117,5 +118,17 @@
     100% {
         opacity: 0;
         transform: scaleY(0)
+    }
+}
+
+@media (max-width: 800px){
+
+    .tabs{
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .tabs::-webkit-scrollbar{
+        display: none;
     }
 }
