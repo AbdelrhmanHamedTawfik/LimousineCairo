@@ -23,32 +23,36 @@ def index(request):
     
     return render(request, 'index.html', context)
 
-# def service(request, title):
-#     service = Service.objects.get(title=title)
-#     context = {
-#         'Service': service
-#     }
+def service(request, title):
+    service = Service.objects.get(title=str(title))
+    category = Service_category.objects.get(pk=service.category.pk)
+    context = {
+        'Service': service,
+        'Category': category,
+    }
     
-#     return render(request, 'service.html', context)
+    return render(request, 'service.html', context)
 
-def service(request):
-    
-    return render(request, 'service.html')
+# def service(request):
+
+#     return render(request, 'service.html')
 
 def services(request):
-    
-    return render(request, 'services_comp.html')
+    Services_cats = Service_category.objects.all()
+    context = {
+        'Categories': Services_cats
+    }
+
+    return render(request, 'services_comp.html', context)
 
 def about(request):
     
     return render(request, 'about.html')
 
 def fleet(request):
-    Cars = Car.objects.all()
     Cars_cats = Car_category.objects.all()
     context = {
-        'Categories': Cars_cats,
-        'Cars': Cars
+        'Categories': Cars_cats
     }
     return render(request, 'fleet.html', context)
 

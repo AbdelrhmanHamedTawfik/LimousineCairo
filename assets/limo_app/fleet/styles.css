@@ -43,6 +43,7 @@
     font-size: 20px;
     background-color: rgb(40, 42, 60);
     color: rgb(211, 174, 102);
+    padding: 10px;
 }
 
 .tab.active{

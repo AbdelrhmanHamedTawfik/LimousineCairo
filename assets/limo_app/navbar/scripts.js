@@ -5,7 +5,8 @@ function scrollToSection(section){
 
 }
 
-function resetSectionSelection(sections_data){
+function resetSectionSelection(){
+    let sections_data = getSectionsData();
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         let scrollY = window.pageYOffset;
         for (let section in sections_data){

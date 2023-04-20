@@ -162,6 +162,65 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-5" id="section-7" style="border-top: 2px solid rgb(40, 42, 60);">
+                    <div class="col-sm-10 m-auto pt-5 pb-5">
+                        <h2>
+                            {% if request.COOKIES.language == "AR" %}
+                                اراء العملاء
+                            {% else %}
+                                Testimonials
+                            {% endif %}
+                        </h2>
+                        <br>
+                        <p>
+                            {% if request.COOKIES.language == "AR" %}
+                                لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
+                                صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
+                                قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
+                                شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في
+                                الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت"
+                                (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر
+                                الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.
+                            {% else %}
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and
+                                scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                                leap
+                                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                the
+                                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing
+                                software like Aldus PageMaker including versions of Lorem Ipsum.
+                            {% endif %} 
+                        </p>
+                        <br>
+                        <div class="testimonials-container">
+                            <div class="testimonials-item card text-center">
+                                <i class="bi bi-quote"></i>
+                                <div class="card-body blockquote">
+                                    <p class="card-text">
+                                        {% if request.COOKIES.language == "AR" %}
+                                            افضل شركة علي الاطلاق
+                                        {% else %}
+                                            Best Company ever
+                                        {% endif %}
+                                    </p>
+                                    <footer class="blockquote-footer">
+                                        <cite title="Source Title">
+                                            {% if request.COOKIES.language == "AR" %}
+                                                محمد
+                                            {% else %}
+                                                Mohamed
+                                            {% endif %}
+                                        </cite>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
         {% include 'footer.html' %}

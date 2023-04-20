@@ -100,6 +100,12 @@
     cursor: pointer;
     width: 50px;
     height: 50px;
+    transition: 0.5s;
+}
+
+.related-topics-button.disabled{
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media (max-width: 800px){
@@ -113,6 +119,7 @@
 
     .topic-item.selected{
         opacity: 1 !important;
+        transform: translateY(30px) translateX(-50%) !important;
     }
 
     .service-body{
@@ -323,6 +330,7 @@
     font-size: 20px;
     background-color: rgb(40, 42, 60);
     color: rgb(211, 174, 102);
+    padding: 10px;
 }
 
 .tab.active{

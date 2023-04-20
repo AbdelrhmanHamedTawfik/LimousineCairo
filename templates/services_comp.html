@@ -61,269 +61,110 @@
                         software like Aldus PageMaker including versions of Lorem Ipsum.
                     {% endif %}
                 </p>
-                <div class="tabs">
-                    <div class="tab active" onclick="switchTab(0)">
-                        {% if request.COOKIES.language == "AR" %}
-                            رحلات داخلية
+                {%if Categories%}
+                    <div class="tabs">
+                        {% for cat in Categories %}
+                            {% if forloop.first %}
+                                <div class="tab active" onclick="switchTab('{{ forloop.counter0 }}')">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{cat.title_ar}}
+                                    {% else %}
+                                        {{cat.title}}
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="tab" onclick="switchTab('{{ forloop.counter0 }}')">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{cat.title_ar}}
+                                    {% else %}
+                                        {{cat.title}}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% for cat in Categories %}
+                        {% if forloop.first %}
+                            <div class="services-section active">
+                                {%if cat.service_set.all%}
+                                    {% for service in cat.service_set.all %}
+                                        <div class="services-item">
+                                            <img src="{{service.thumbnail.url}}" class="services-img">
+                                            <div class="services-img-overlay">
+                                                <p class="fw-bold">
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        {{service.title_ar}}
+                                                    {% else %}
+                                                        {{service.title}}
+                                                    {% endif %}
+                                                </p>
+                                                <p>
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        {{service.summary_ar}}
+                                                    {% else %}
+                                                        {{service.summary}}
+                                                    {% endif %}
+                                                </p>
+                                                <a type="button" class="btn read-more" href="{% url 'service' title=service.title %}">
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        المزيد
+                                                    {% else %}
+                                                        Read More
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if request.COOKIES.language == "AR" %}
+                                        لا يوجد خدمات من هذة الفئة حاليا
+                                    {% else %}
+                                        No Services are currently Available for this Category
+                                    {% endif %}
+                                {% endif %}
+                            </div>
                         {% else %}
-                            Domestic Trips
+                            <div class="services-section">
+                                {%if cat.service_set.all%}
+                                    {% for service in cat.service_set.all %}
+                                        <div class="services-item">
+                                            <img src="{{service.thumbnail.url}}" class="services-img">
+                                            <div class="services-img-overlay">
+                                                <p class="fw-bold">
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        {{service.title_ar}}
+                                                    {% else %}
+                                                        {{service.title}}
+                                                    {% endif %}
+                                                </p>
+                                                <p>
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        {{service.summary_ar}}
+                                                    {% else %}
+                                                        {{service.summary}}
+                                                    {% endif %}
+                                                </p>
+                                                <a type="button" class="btn read-more" href="{% url 'service' title=service.title %}">
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        المزيد
+                                                    {% else %}
+                                                        Read More
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if request.COOKIES.language == "AR" %}
+                                        لا يوجد خدمات من هذة الفئة حاليا
+                                    {% else %}
+                                        No Services are currently Available for this Category
+                                    {% endif %}
+                                {% endif %}
+                            </div>
                         {% endif %}
-                    </div>
-                    <div class="tab" onclick="switchTab(1)">
-                        {% if request.COOKIES.language == "AR" %}
-                            رحلات مطار
-                        {% else %}
-                            Airport Trips
-                        {% endif %}
-                    </div>
-                    <div class="tab" onclick="switchTab(2)">
-                        {% if request.COOKIES.language == "AR" %}
-                            افراح
-                        {% else %}
-                            Weddings
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="services-section active">
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_2.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_1.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_3.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_2.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_3.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="services-section">
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_2.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_1.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="services-section">
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_2.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="services-item">
-                        <img src="{% static 'limo_app/images/service_1.jpg' %}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    الاسكندرية
-                                {% else %}
-                                    Alexandria
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى)
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
         {% include 'footer.html' %}

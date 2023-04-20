@@ -11,7 +11,11 @@ def get_decimal(value, counter):
     round_value = round(value * 2) / 2
     return counter - round_value
 
+def get_by_index(indexable, i):
+    return indexable[i]
+
 register.filter('get_decimal', get_decimal)
+register.filter('get_by_index', get_by_index)
 
 
 class OverwriteStorage(FileSystemStorage):

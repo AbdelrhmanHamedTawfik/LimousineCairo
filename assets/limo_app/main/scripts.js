@@ -1,13 +1,11 @@
-let sections_data;
 window.onload = function(){
     scrollToTop();
     hideLoading();
-    sections_data = getSectionsData();
 };
 
 window.onscroll = function(){
     showTopButton();
-    resetSectionSelection(sections_data);
+    resetSectionSelection();
 };
 
 function scrollToTop(){
