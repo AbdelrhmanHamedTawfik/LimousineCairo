@@ -5,7 +5,7 @@
 <i class="bi bi-envelope-at-fill mail-button" onclick="scrollToTop()"></i>
 <nav class="social">
     <ul class="social-list">
-        <a class="social-link" href="#" target="_blank">
+        <a class="social-link" href="{{socials|get_social_link:'Facebook'}}" target="_blank">
             <li class="social-item">
                 {% if request.COOKIES.language == "AR" %}
                     فيسبوك
@@ -15,7 +15,7 @@
                 <i class="bi bi-facebook"></i>
             </li>
         </a>
-        <a class="social-link" href="#" target="_blank">
+        <a class="social-link" href="{{socials|get_social_link:'Twitter'}}" target="_blank">
             <li class="social-item">
                 {% if request.COOKIES.language == "AR" %}
                     تويتر
@@ -25,7 +25,7 @@
                 <i class="bi bi-twitter"></i>
             </li>
         </a>
-        <a class="social-link" href="#" target="_blank">
+        <a class="social-link" href="{{socials|get_social_link:'Whatsapp'}}" target="_blank">
             <li class="social-item">
                 {% if request.COOKIES.language == "AR" %}
                     واتساب
@@ -35,7 +35,7 @@
                 <i class="bi bi-whatsapp"></i>
             </li>
         </a>
-        <a class="social-link" href="#" target="_blank">
+        <a class="social-link" href="{{socials|get_social_link:'Instagram'}}" target="_blank">
             <li class="social-item">
                 {% if request.COOKIES.language == "AR" %}
                     انستجرام

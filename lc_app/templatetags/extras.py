@@ -14,8 +14,12 @@ def get_decimal(value, counter):
 def get_by_index(indexable, i):
     return indexable[i]
 
+def get_social_link(indexable, title):
+    return indexable.filter(title=title).values().first()['link']
+
 register.filter('get_decimal', get_decimal)
 register.filter('get_by_index', get_by_index)
+register.filter('get_social_link', get_social_link)
 
 
 class OverwriteStorage(FileSystemStorage):
