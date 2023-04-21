@@ -118,13 +118,13 @@
                                 {% endif %}
                             </h3>
                             <br>
-                            <a type="button" class="btn read-more-outter mt-2" href="{% url 'services' %}">
+                            <div type="button" class="btn read-more-outter mt-2" onclick="showModal(2)">
                                 {% if request.COOKIES.language == "AR" %}
                                     قدم شكوي
                                 {% else %}
                                     Complaine
                                 {% endif %}
-                            </a>
+                            </div>
                         </div>
                     </div>
                     <div class="contact-item card text-center">
@@ -138,13 +138,13 @@
                                 {% endif %}
                             </h3>
                             <br>
-                            <a type="button" class="btn read-more-outter mt-2" href="{% url 'services' %}">
+                            <div type="button" class="btn read-more-outter mt-2" onclick="showModal(1)">
                                 {% if request.COOKIES.language == "AR" %}
                                     احجز
                                 {% else %}
                                     Book
                                 {% endif %}
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>

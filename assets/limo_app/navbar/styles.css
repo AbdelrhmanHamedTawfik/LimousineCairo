@@ -133,3 +133,11 @@ html[dir="ltr"] .sections-buttons{
 .section-item.active{
     background-color: rgb(211,174,102);
 }
+
+.notification{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}

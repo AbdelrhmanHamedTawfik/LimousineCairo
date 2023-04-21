@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .models import *
-from twilio.rest import Client as twilioClient
 
 
 def index(request):
@@ -12,6 +11,13 @@ def index(request):
     ContactInfos = ContactInfo.objects.get(pk=1)
     Map_obj = Map.objects.get(pk=1)
     Socials = Social.objects.all()
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
     context = {
         'Services': Services,
         'Cars': Cars,
@@ -19,6 +25,7 @@ def index(request):
         'Map': Map_obj,
         'ContactInfo': ContactInfos,
         'Socials': Socials,
+        'show_notifications': show_notifications,
     }
     
     return render(request, 'index.html', context)
@@ -26,9 +33,17 @@ def index(request):
 def service(request, title):
     service = Service.objects.get(title=str(title))
     category = Service_category.objects.get(pk=service.category.pk)
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
     context = {
         'Service': service,
         'Category': category,
+        'show_notifications': show_notifications,
     }
     
     return render(request, 'service.html', context)
@@ -39,56 +54,143 @@ def service(request, title):
 
 def services(request):
     Services_cats = Service_category.objects.all()
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
     context = {
-        'Categories': Services_cats
+        'Categories': Services_cats,
+        'show_notifications': show_notifications,
     }
 
     return render(request, 'services_comp.html', context)
 
 def about(request):
-    
-    return render(request, 'about.html')
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
+    context = {
+        'show_notifications': show_notifications,
+    }
+
+    return render(request, 'about.html', context)
 
 def fleet(request):
     Cars_cats = Car_category.objects.all()
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
     context = {
-        'Categories': Cars_cats
+        'Categories': Cars_cats,
+        'show_notifications': show_notifications,
     }
+
     return render(request, 'fleet.html', context)
 
 def contact(request):
     Map_obj = Map.objects.get(pk=1)
+    Orders = Order.objects.filter(read=False)
+    Complains = Complain.objects.filter(read=False)
+    show_notifications = False
+
+    if Orders.count() > 0 or Complains.count() > 0 :
+        show_notifications = True
+
     context = {
         'Map': Map_obj,
+        'show_notifications': show_notifications,
     }
+
     return render(request, 'contact.html', context)
 
-def sendWhatsapp(request):
-    TWILIO_ACCOUNT_SID='AC8f79a380d2e2ea566e78ffd30729fbd3'
-    TWILIO_AUTH_TOKEN='086582619f1053bffd37a6fddecc2444'
+def request(request):
+    Orders = Order.objects.all()
+    Complains = Complain.objects.all()
+
+    Orders_Filtered = Order.objects.filter(read=False)
+    Complains_Filtered = Complain.objects.filter(read=False)
+
+    show_notifications = False
+
+    if Orders_Filtered.count() > 0 or Complains_Filtered.count() > 0 :
+        show_notifications = True
+
+    context = {
+        'Orders': Orders,
+        'Complains': Complains,
+        'show_notifications': show_notifications,
+    }
+
+    return render(request, 'request.html', context)
+
+def order_complain(request):
     if request.method == "POST":
         form_data = request.POST
         name = form_data['name']
         phone = form_data['phone']
         details = form_data['details']
         form_type = form_data['form_type']
-        client = twilioClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-        from_whatsapp_number='whatsapp:+14155238886'
-        to_whatsapp_number='whatsapp:+201021759613'
 
         if(form_type == "1"):
             date = form_data['date']
             car = form_data['car']
-            message = ''' A Client is requesting a ride:\n\n Name: ''' + name + '''\n phone: ''' + phone + '''\n date: ''' + date + '''\n car: ''' + car + '''\n details: ''' + details + '''\n '''
+            Order.objects.create(
+               name = name,
+               phone = phone,
+               date = date,
+               details = details,
+               car = car
+           )
         else:
-            message = ''' A Client is complaning or suggessting:\n\n Name: ''' + name + '''\n phone: ''' + phone + '''\n details: ''' + details + '''\n '''
+            Complain.objects.create(
+               name = name,
+               phone = phone,
+               details = details
+           )
         
-        output = client.messages.create(body=message, from_=from_whatsapp_number, to=to_whatsapp_number)
+        return JsonResponse({"success": True}, status=200)
+        
+    return JsonResponse({"success": False}, status=400)
 
-        if(output.error_code == None):
-            return JsonResponse({"success": True}, status=200)
-        
-        return JsonResponse({"success": False}, status=400)
-    else:
-        # display the form
-        return JsonResponse({"success": False}, status=400)
+
+def update_order(request):
+    order = Order.objects.get(pk=request.POST['id'])
+    order.read = True
+    order.save()
+
+    Orders_Filtered = Order.objects.filter(read=False)
+    Complains_Filtered = Complain.objects.filter(read=False)
+
+    show_notifications = False
+
+    if Orders_Filtered.count() > 0 or Complains_Filtered.count() > 0 :
+        show_notifications = True
+
+
+    return JsonResponse({"success": True, "show_notifications":show_notifications}, status=200)
+
+def update_complain(request):
+    complain = Complain.objects.get(pk=request.POST['id'])
+    complain.read = True
+    complain.save()
+
+    Orders_Filtered = Order.objects.filter(read=False)
+    Complains_Filtered = Complain.objects.filter(read=False)
+
+    show_notifications = False
+
+    if Orders_Filtered.count() > 0 or Complains_Filtered.count() > 0 :
+        show_notifications = True
+
+    return JsonResponse({"success": True, "show_notifications":show_notifications}, status=200)

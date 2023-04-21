@@ -90,3 +90,22 @@ class ContactInfo(models.Model):
     def __str__(self):
         return self.address
     
+class Order(models.Model):
+    name = models.CharField(max_length=400, editable=False)
+    phone = models.CharField(max_length=400, editable=False)
+    date = models.CharField(max_length=400, editable=False)
+    details = models.CharField(max_length=400, editable=False)
+    car = models.CharField(max_length=400, editable=False)
+    read = models.BooleanField(default=False, editable=False)
+
+    def __str__(self):
+        return self.name
+    
+class Complain(models.Model):
+    name = models.CharField(max_length=400, editable=False)
+    phone = models.CharField(max_length=400, editable=False)
+    details = models.CharField(max_length=400, editable=False)
+    read = models.BooleanField(default=False, editable=False)
+
+    def __str__(self):
+        return self.name

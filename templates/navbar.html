@@ -66,6 +66,22 @@
                         {% endif %}
                     </a>
                 </li>
+                {% if user.is_superuser %}
+                    <li class="nav-item">
+                        {% if show_notifications %}
+                            <div id="notification" class="notification"></div>
+                        {% else %}
+                            <div id="notification" class="notification d-none"></div>
+                        {% endif %}
+                        <a class="navbar-link" href="{% url 'request' %}">
+                            {% if request.COOKIES.language == "AR" %}
+                                الطلبات
+                            {% else %}
+                                Requests
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endif %}
                 <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#language-list" aria-expanded="true">
                     <div style="padding-left: 15px; padding-right: 15px;">
                         {% if request.COOKIES.language == "AR" %}

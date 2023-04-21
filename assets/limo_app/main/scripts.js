@@ -102,7 +102,7 @@ function validateForm(form_type){
         });
         $.ajax({
             type: 'POST',
-            url: 'sendWhatsapp/',
+            url: 'order-complain',
             data: data,
             processData: false,
             contentType: false,
@@ -111,6 +111,10 @@ function validateForm(form_type){
                 let fail_screen = document.querySelector('#fail-screen')
                 if(data.success){
                     success_screen.classList.add("active")
+                    let notifcation = $("#notification")
+                    if(notifcation != null || notifcation != undefined){
+                        notifcation.removeClass("d-none")
+                    }
                 }else{
                     fail_screen.classList.add("active")
                 }

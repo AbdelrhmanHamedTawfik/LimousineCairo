@@ -1,6 +1,8 @@
 {% load static %}
 {% load extras %}
 <i id="top-button" class="bi bi-arrow-up-circle-fill top-button" onclick="scrollToTop()"></i>
+<i class="bi bi-telephone call-button" onclick="scrollToTop()"></i>
+<i class="bi bi-envelope-at-fill mail-button" onclick="scrollToTop()"></i>
 <nav class="social">
     <ul class="social-list">
         <a class="social-link" href="#" target="_blank">
@@ -62,6 +64,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="needs-validation" class="needs-validation row g-3" novalidate>
+                        {% csrf_token %}
                         <div class="col-md-6">
                             <label for="name-field" class="form-label">
                                 {% if request.COOKIES.language == "AR" %}
@@ -221,14 +224,14 @@
             </div>
             <div id="success-screen" class="modal-content modal-layout-success">
                 <i class="bi bi-check-circle-fill"></i>
-                <h2>
+                <h2 class="text-center">
                     {% if request.COOKIES.language == "AR" %}
                         تم ارسال الطلب بنجاح
                     {% else %}
                         Your Request Was sent successfully
                     {% endif %}
                 </h2>
-                <h2>
+                <h2 class="text-center">
                     {% if request.COOKIES.language == "AR" %}
                         سيقوم احد ممثلينا بالتواصل معكم في اقرب وقت
                     {% else %}
@@ -245,14 +248,14 @@
             </div>
             <div id="fail-screen" class="modal-content modal-layout-fail">
                 <i class="bi bi-x-circle-fill"></i>
-                <h2>
+                <h2 class="text-center">
                     {% if request.COOKIES.language == "AR" %}
                         حدث خطاء اثناء ارسال الطلب
                     {% else %}
                         Error Sending the request
                     {% endif %}
                 </h2>
-                <h2>
+                <h2 class="text-center">
                     {% if request.COOKIES.language == "AR" %}
                         الرجاء المحاولة في وقتا لاحق
                     {% else %}
