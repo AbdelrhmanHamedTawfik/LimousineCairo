@@ -33,7 +33,7 @@ body{
     display: none;
     position: fixed;
     height: 50px;
-    bottom: 30px;
+    bottom: 50px;
     z-index: 99;
     font-size: 50px;
     border: none;
@@ -47,16 +47,77 @@ body{
 }
 
 html[dir="rtl"] .top-button{
-    left: 30px;
+    left: 20px;
 }
 
 html[dir="ltr"] .top-button{
-    right: 30px;
+    right: 20px;
 }
 
-.top-button:hover {
+.call-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 110px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 45px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease 0s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+    line-height: 45px;
+    color: rgb(211,174,102);
+}
+
+html[dir="rtl"] .call-button{
+    right: 20px;
+}
+
+html[dir="ltr"] .call-button{
+    left: 20px;
+}
+
+.mail-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    bottom: 50px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 45px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease 0s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+    line-height: 45px;
+    color: rgb(211,174,102);
+}
+
+html[dir="rtl"] .mail-button{
+    right: 20px;
+}
+
+html[dir="ltr"] .mail-button{
+    left: 20px;
+}
+
+.top-button:hover{
     color:rgb(211,174,102);
     background-color: white;
+}
+
+.call-button:hover, .mail-button:hover{
+    background-color:rgb(211,174,102);
+    color: white;
 }
 
 .logo{
