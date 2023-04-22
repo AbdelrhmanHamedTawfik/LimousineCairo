@@ -1,7 +1,11 @@
 import datetime
+import os
+import shutil
 from django.db import models
 from django.core.validators import RegexValidator
 from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 from .templatetags import extras
 
 class Service_category(models.Model):
@@ -24,11 +28,20 @@ class Service(models.Model):
     thumbnail = models.ImageField(upload_to=extras.PathRename('services'), storage=extras.OverwriteStorage())
     summary = models.CharField(max_length=100)
     summary_ar = models.CharField(max_length=100)
-    slider_image_1 = models.ImageField(upload_to=extras.PathRename('services'), storage=extras.OverwriteStorage())
-    slider_image_2 = models.ImageField(upload_to=extras.PathRename('services'), storage=extras.OverwriteStorage())
+    slider_image_1 = models.ImageField(upload_to=extras.PathRename('services', "_Slider_1"), storage=extras.OverwriteStorage())
+    slider_image_2 = models.ImageField(upload_to=extras.PathRename('services', "_Slider_2"), storage=extras.OverwriteStorage())
     description = models.TextField()
     description_ar = models.TextField()
+    description2 = models.TextField()
+    description2_ar = models.TextField()
     category = models.ForeignKey(Service_category, on_delete=models.CASCADE)
+
+    def save(self):
+        if self.pk:
+            old_record = Service.objects.get(pk=self.pk)
+            if old_record:
+                os.rename(os.path.join("media", 'services', old_record.title), os.path.join("media", 'services', self.title))
+        super().save()
 
     def __str__(self):
         return self.title
@@ -44,6 +57,13 @@ class Car(models.Model):
     bag_count = models.PositiveIntegerField(default=1)
     reserve_days = models.PositiveIntegerField(default=1)
     category = models.ForeignKey(Car_category, on_delete=models.CASCADE)
+
+    def save(self):
+        if self.pk:
+            old_record = Car.objects.get(pk=self.pk)
+            if old_record:
+                os.rename(os.path.join("media", 'services', old_record.name), os.path.join("media", 'services', self.name))
+        super().save()
 
     def __str__(self):
         return self.name
@@ -74,7 +94,7 @@ class Social(models.Model):
         return self.title
 
 class Map(models.Model):
-    location_name = models.CharField(max_length=100, default='Home')
+    location_name = models.CharField(max_length=100, default='Office')
     link = models.CharField(max_length=1000)
 
     def __str__(self):
@@ -109,3 +129,12 @@ class Complain(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+@receiver(pre_delete, sender=Service)
+def my_handler(sender, instance, **kwargs):
+    shutil.rmtree(os.path.join("media", 'services', instance.title))
+
+@receiver(pre_delete, sender=Car)
+def my_handler(sender, instance, **kwargs):
+    shutil.rmtree(os.path.join("media", 'cars', instance.name))

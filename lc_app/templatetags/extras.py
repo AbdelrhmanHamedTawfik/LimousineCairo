@@ -25,20 +25,22 @@ register.filter('get_social_link', get_social_link)
 class OverwriteStorage(FileSystemStorage):
     def get_available_name(self, name, max_length=None):
         if self.exists(name):
-            os.remove(os.path.join(name))
+            os.remove(os.path.join("media", name))
         return name
 
 @deconstructible
 class PathRename(object):
 
-    def __init__(self, sub_path):
+    def __init__(self, sub_path, fixed_name=""):
         self.path = sub_path
+        self.fixed_name = fixed_name
 
     def __call__(self, instance, filename):
         ext = filename.split('.')[-1]
         # get filename
-        if instance.pk:
-            filename = '{}.{}'.format(instance.pk, ext)
+        if instance:
+            filename = '{}.{}'.format(str(instance) + self.fixed_name, ext)
+            return os.path.join(self.path, str(instance), filename)
         else:
             # set filename as random string
             filename = '{}.{}'.format(str(uuid4().hex)[:4], ext)
