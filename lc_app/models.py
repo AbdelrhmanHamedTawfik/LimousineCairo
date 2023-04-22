@@ -32,8 +32,8 @@ class Service(models.Model):
     slider_image_2 = models.ImageField(upload_to=extras.PathRename('services', "_Slider_2"), storage=extras.OverwriteStorage())
     description = models.TextField()
     description_ar = models.TextField()
-    description2 = models.TextField()
-    description2_ar = models.TextField()
+    description2 = models.TextField(default="random text")
+    description2_ar = models.TextField(default="random text")
     category = models.ForeignKey(Service_category, on_delete=models.CASCADE)
 
     def save(self):
