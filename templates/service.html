@@ -84,13 +84,13 @@
                     </button>
                 </div>
                 <br>
-                <h1>
+                <h2>
                     {% if request.COOKIES.language == "AR" %}
                         {{Service.title_ar}}
                     {% else %}
                         {{Service.title}}
                     {% endif %}
-                </h1>
+                </h2>
                 <p class="mt-5 mb-5">
                     {% if request.COOKIES.language == "AR" %}
                         {{Service.description2_ar}}

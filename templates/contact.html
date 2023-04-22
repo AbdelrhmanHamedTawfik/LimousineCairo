@@ -32,24 +32,24 @@
                 <img src="{% static 'limo_app/images/logo2.png' %}" alt="...">
             </div>
             <div class="contact-comp">
-                <h2>
-                    {% if request.COOKIES.language == "AR" %}
-                        تواصل معنا
-                    {% else %}
-                        Contact Us
-                    {% endif %}
+                <h2> 
+                    {% with pages_info|get_by_index:3 as page%}
+                        {% if request.COOKIES.language == "AR" %}
+                            {{ page.title_ar }}
+                        {% else %}
+                            {{ page.title }}
+                        {% endif %}
+                    {% endwith %}
                 </h2>
                 <br>
-                <p>
-                    {% if request.COOKIES.language == "AR" %}
-                        لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                        صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                        قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                        شكلي لهذه الأحرف.
-                    {% else %}
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s
-                    {% endif %}
+                <p> 
+                    {% with pages_info|get_by_index:3 as page%}
+                        {% if request.COOKIES.language == "AR" %}
+                            {{ page.description_ar }}
+                        {% else %}
+                            {{ page.description }}
+                        {% endif %}
+                    {% endwith %}
                 </p>
                 <br>
                 <div class="contact-container">

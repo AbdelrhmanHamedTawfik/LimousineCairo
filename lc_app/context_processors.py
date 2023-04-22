@@ -4,6 +4,7 @@ from lc_app.models import *
 def common_data(request):
     contact_info = ContactInfo.objects.all().first()
     socials = Social.objects.all()
+    pages_info = PagesInfo.objects.all()
     orders_filtered = Order.objects.filter(read=False)
     complains_filtered = Complain.objects.filter(read=False)
 
@@ -15,5 +16,6 @@ def common_data(request):
     return {
         'show_notifications': show_notifications,
         'contact_info': contact_info,
+        'pages_info': pages_info,
         'socials': socials
     }

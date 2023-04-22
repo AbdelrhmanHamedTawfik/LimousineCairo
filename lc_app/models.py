@@ -6,6 +6,7 @@ from django.core.validators import RegexValidator
 from django.core.validators import MaxValueValidator, MinValueValidator 
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
+from django_resized import ResizedImageField
 from .templatetags import extras
 
 class Service_category(models.Model):
@@ -25,11 +26,12 @@ class Car_category(models.Model):
 class Service(models.Model):
     title = models.CharField(max_length=200, unique=True)
     title_ar = models.CharField(max_length=200, unique=True)
-    thumbnail = models.ImageField(upload_to=extras.PathRename('services'), storage=extras.OverwriteStorage())
+    thumbnail = ResizedImageField(size=[300, 400], upload_to=extras.PathRename('services'), storage=extras.OverwriteStorage())
+    banner = ResizedImageField(upload_to=extras.PathRename('services', "_banner"), storage=extras.OverwriteStorage())
     summary = models.CharField(max_length=100)
     summary_ar = models.CharField(max_length=100)
-    slider_image_1 = models.ImageField(upload_to=extras.PathRename('services', "_Slider_1"), storage=extras.OverwriteStorage())
-    slider_image_2 = models.ImageField(upload_to=extras.PathRename('services', "_Slider_2"), storage=extras.OverwriteStorage())
+    slider_image_1 = ResizedImageField(size=[1000, 800], crop=['middle', 'center'], upload_to=extras.PathRename('services', "_Slider_1"), storage=extras.OverwriteStorage())
+    slider_image_2 = ResizedImageField(size=[1000, 800], crop=['middle', 'center'], upload_to=extras.PathRename('services', "_Slider_2"), storage=extras.OverwriteStorage())
     description = models.TextField()
     description_ar = models.TextField()
     description2 = models.TextField(default="random text")
@@ -52,7 +54,7 @@ class Car(models.Model):
     today = datetime.date.today()
     year = today.year
     model = models.PositiveIntegerField(default=1990, validators=[MinValueValidator(1990), MaxValueValidator(int(year))])
-    image = models.ImageField(upload_to=extras.PathRename('cars'), storage=extras.OverwriteStorage())
+    image = ResizedImageField(size=[200, 150], upload_to=extras.PathRename('cars'), storage=extras.OverwriteStorage())
     person_count = models.PositiveIntegerField(default=1)
     bag_count = models.PositiveIntegerField(default=1)
     reserve_days = models.PositiveIntegerField(default=1)
@@ -109,6 +111,16 @@ class ContactInfo(models.Model):
 
     def __str__(self):
         return self.address
+    
+class PagesInfo(models.Model):
+    title = models.CharField(max_length=200)
+    title_ar = models.CharField(max_length=200)
+    description = models.TextField()
+    description_ar = models.TextField()
+    banner = ResizedImageField(upload_to=extras.PathRename('pages_banners'), storage=extras.OverwriteStorage())
+
+    def __str__(self):
+        return self.title
     
 class Order(models.Model):
     name = models.CharField(max_length=400, editable=False)
