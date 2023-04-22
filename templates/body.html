@@ -404,19 +404,19 @@
                             <i class="bi bi-geo-alt-fill"></i>
                             <span>
                                 {% if request.COOKIES.language == "AR" %}
-                                    شارع جمال عبد الناصر عمارة 632
+                                    {{contact_info.address_ar}}
                                 {% else %}
-                                    632 Gamal Abdel Nasser
+                                    {{contact_info.address}}
                                 {% endif %}
                             </span>
                         </div>
                         <div class="contact-booking-item">
                             <i class="bi bi-telephone-fill"></i>
-                            <span>0123456789</span>
+                            <span>{{contact_info.phone_1}}</span> or <span>{{contact_info.phone_2}}</span>
                         </div>
                         <div class="contact-booking-item">
                             <i class="bi bi-envelope-at-fill"></i>
-                            <span>test@test.com</span>
+                            <span>{{contact_info.email}}</span>
                         </div>
                     </div>
                     <button type="button" class="btn read-more-outter mt-0" onclick="showModal(2)">

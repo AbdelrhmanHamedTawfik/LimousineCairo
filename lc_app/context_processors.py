@@ -2,7 +2,7 @@ from lc_app.models import *
 
 
 def common_data(request):
-    contact_info = ContactInfo.objects.all()
+    contact_info = ContactInfo.objects.all().first()
     socials = Social.objects.all()
     orders_filtered = Order.objects.filter(read=False)
     complains_filtered = Complain.objects.filter(read=False)

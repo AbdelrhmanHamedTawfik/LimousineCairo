@@ -66,9 +66,9 @@
                             <br>
                             <p class="card-text">
                                 {% if request.COOKIES.language == "AR" %}
-                                    123 عنوان وهبي للتيست
+                                    {{contact_info.address_ar}}
                                 {% else %}
-                                    123 test street, gamal abdel nasser
+                                    {{contact_info.address}}
                                 {% endif %}
                             </p>
                         </div>
@@ -85,7 +85,7 @@
                             </h3>
                             <br>
                             <p class="card-text">
-                                01234567890 - 021321312313
+                                {{contact_info.phone_1}} - {{contact_info.phone_2}}
                             </p>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                             </h3>
                             <br>
                             <p class="card-text">
-                                123test@domain.com
+                                {{contact_info.email}}
                             </p>
                         </div>
                     </div>
