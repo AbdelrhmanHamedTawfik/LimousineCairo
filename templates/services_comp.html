@@ -153,6 +153,15 @@
                             </div>
                         {% endif %}
                     {% endfor %}
+                {% else %}
+                    <br>
+                    <h3>
+                        {% if request.COOKIES.language == "AR" %}
+                            لا يوجد خدمات حاليا
+                        {% else %}
+                            No Services are currently Available
+                        {% endif %}
+                    </h3>
                 {% endif %}
             </div>
         </div>

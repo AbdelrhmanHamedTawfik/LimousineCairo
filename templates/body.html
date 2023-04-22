@@ -94,36 +94,47 @@
                     {% endif %}
                 {% endwith %}
             </p>
-            <div class="services-container">
-                {% for service in Services %}
-                    <div class="services-item">
-                        <img src="{{service.thumbnail.url}}" class="services-img">
-                        <div class="services-img-overlay">
-                            <p class="fw-bold">
-                                {% if request.COOKIES.language == "AR" %}
-                                    {{service.title_ar}}
-                                {% else %}
-                                    {{service.title}}
-                                {% endif %}
-                            </p>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    {{service.summary_ar}}
-                                {% else %}
-                                    {{service.summary}}
-                                {% endif %}
-                            </p>
-                            <a type="button" class="btn read-more" href="{% url 'service' title=service.title %}">
-                                {% if request.COOKIES.language == "AR" %}
-                                    المزيد
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                            </a>
+            {% if Services %}
+                <div class="services-container">
+                    {% for service in Services %}
+                        <div class="services-item">
+                            <img src="{{service.thumbnail.url}}" class="services-img">
+                            <div class="services-img-overlay">
+                                <p class="fw-bold">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{service.title_ar}}
+                                    {% else %}
+                                        {{service.title}}
+                                    {% endif %}
+                                </p>
+                                <p>
+                                    {% if request.COOKIES.language == "AR" %}
+                                        {{service.summary_ar}}
+                                    {% else %}
+                                        {{service.summary}}
+                                    {% endif %}
+                                </p>
+                                <a type="button" class="btn read-more" href="{% url 'service' title=service.title %}">
+                                    {% if request.COOKIES.language == "AR" %}
+                                        المزيد
+                                    {% else %}
+                                        Read More
+                                    {% endif %}
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <br>
+                <h3>
+                    {% if request.COOKIES.language == "AR" %}
+                        لا يوجد خدمات حاليا
+                    {% else %}
+                        No Services are currently Available
+                    {% endif %}
+                </h3>
+            {% endif %}
             <a type="button" class="btn read-more-outter" href="{% url 'services' %}">
                 {% if request.COOKIES.language == "AR" %}
                     مشاهدة الكل
@@ -159,68 +170,80 @@
                     {% endif %}
                 {% endwith %}
             </p>
-            <div class="fleet-container">
-                {% for car in Cars %}
-                    <div class="fleet-item">
-                        <img src="{{car.image.url}}" class="car-img" alt="...">
-                        <br>
-                        <div class="car-details">
-                            <div class="car-name">
-                                <span>
-                                    {% if request.COOKIES.language == "AR" %}
-                                        {{car.name_ar}}
-                                    {% else %}
-                                        {{car.name}}
-                                    {% endif %}
-                                </span>
-                                <div class="car-model">
-                                    {{car.model}}
-                                </div>
-                            </div>
-                            <div class="car-specs">
-                                <div class="car-specs-row">
-                                    <div>
-                                        <i class="bi bi-person-fill"></i>
-                                        {{car.person_count}} {% if request.COOKIES.language == "AR" %}
-                                            اشخاص
+            {% if Services %}
+                <div class="fleet-container">
+                    {% for car in Cars %}
+                        <div class="fleet-item">
+                            <img src="{{car.image.url}}" class="car-img" alt="...">
+                            <br>
+                            <div class="car-details">
+                                <div class="car-name">
+                                    <span>
+                                        {% if request.COOKIES.language == "AR" %}
+                                            {{car.name_ar}}
                                         {% else %}
-                                            Persons
+                                            {{car.name}}
                                         {% endif %}
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-briefcase-fill"></i>
-                                        {{car.bag_count}} {% if request.COOKIES.language == "AR" %}
-                                            حقائب
-                                        {% else %}
-                                            Bags
-                                        {% endif %}
+                                    </span>
+                                    <div class="car-model">
+                                        {{car.model}}
                                     </div>
                                 </div>
-                                <div class="car-specs-row">
-                                    <div>
-                                        <i class="bi bi-calendar-check-fill"></i>
-                                        {{car.reserve_days}} {% if request.COOKIES.language == "AR" %}
-                                            يوم مقدما
-                                        {% else %}
-                                            Days in advance
-                                        {% endif %}
+                                <div class="car-specs">
+                                    <div class="car-specs-row">
+                                        <div>
+                                            <i class="bi bi-person-fill"></i>
+                                            {{car.person_count}} {% if request.COOKIES.language == "AR" %}
+                                                اشخاص
+                                            {% else %}
+                                                Persons
+                                            {% endif %}
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-briefcase-fill"></i>
+                                            {{car.bag_count}} {% if request.COOKIES.language == "AR" %}
+                                                حقائب
+                                            {% else %}
+                                                Bags
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="car-specs-row">
+                                        <div>
+                                            <i class="bi bi-calendar-check-fill"></i>
+                                            {{car.reserve_days}} {% if request.COOKIES.language == "AR" %}
+                                                يوم مقدما
+                                            {% else %}
+                                                Days in advance
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="car-details-separator"></div>
-                            <div class="car-details-footer">
-                                <button type="button" class="btn" onclick="showModal(1)">
-                                    {% if request.COOKIES.language == "AR" %}
-                                        احجز الان
-                                    {% else %}
-                                        Reserve Now
-                                    {% endif %}
-                                </button>
+                                <div class="car-details-separator"></div>
+                                <div class="car-details-footer">
+                                    <button type="button" class="btn" onclick="showModal(1)">
+                                        {% if request.COOKIES.language == "AR" %}
+                                            احجز الان
+                                        {% else %}
+                                            Reserve Now
+                                        {% endif %}
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <br>
+                <h3>
+                    {% if request.COOKIES.language == "AR" %}
+                        لا يوجد سيارات حاليا
+                    {% else %}
+                        No Cars are currently Available
+                    {% endif %}
+                </h3>
+            {% endif %}
+            
             <a type="button" class="btn read-more-outter" href="{% url 'fleet' %}">
                 {% if request.COOKIES.language == "AR" %}
                     مشاهدة الكل

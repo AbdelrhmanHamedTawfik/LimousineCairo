@@ -218,6 +218,15 @@
                             </div>
                         {% endif %}
                     {% endfor %}
+                {% else %}
+                    <br>
+                    <h3>
+                        {% if request.COOKIES.language == "AR" %}
+                            لا يوجد سيارات حاليا
+                        {% else %}
+                            No Cars are currently Available
+                        {% endif %}
+                    </h3>
                 {% endif %}
             </div>
         </div>
