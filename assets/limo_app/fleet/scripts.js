@@ -1,3 +1,5 @@
+highlightPage("fleet-page")
+
 function switchTab(tab_index){
     let tabs = document.querySelectorAll(".tab");
     let secions = document.querySelectorAll(".fleet-section");

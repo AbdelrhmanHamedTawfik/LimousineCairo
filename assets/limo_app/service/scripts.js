@@ -1,4 +1,5 @@
 drawRelatedTopics();
+highlightPage("services-page")
 
 function moveToSelected(element) {
     if(element == null || element == undefined || $(".topic-item").length <= 1){

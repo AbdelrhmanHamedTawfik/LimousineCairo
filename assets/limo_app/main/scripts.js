@@ -129,3 +129,9 @@ function hideLoading(){
     let loading_screen = document.getElementById("loading-screen");
     setTimeout(()=>{loading_screen.classList.add("d-none")}, 500);
 }
+
+function highlightPage(page_id){
+    console.log(page_id)
+    $('.navbar-nav li').removeClass("active")
+    $('#' + page_id).addClass("active")
+}

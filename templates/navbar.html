@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mx-auto"></div>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li id="home-page" class="nav-item active">
                     <a class="navbar-link" href="{% url 'index' %}">
                         {% if request.COOKIES.language == "AR" %}
                             الرئيسية
@@ -21,8 +21,8 @@
                         {% endif %}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="navbar-link" href="{% url 'about-us' %}">
+                <li id="about-page" class="nav-item">
+                    <a  class="navbar-link" href="{% url 'about-us' %}">
                         {% if request.COOKIES.language == "AR" %}
                             عنا
                         {% else %}
@@ -30,7 +30,7 @@
                         {% endif %}
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="services-page" class="nav-item">
                     <a class="navbar-link" href="{% url 'services' %}">
                         {% if request.COOKIES.language == "AR" %}
                             خدماتنا
@@ -39,7 +39,7 @@
                         {% endif %}
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="fleet-page" class="nav-item">
                     <a class="navbar-link" href="{% url 'fleet' %}">
                         {% if request.COOKIES.language == "AR" %}
                             اسطولنا
@@ -48,7 +48,7 @@
                         {% endif %}
                     </a>
                 </li>
-                <li class="nav-item">
+                <li id="contact-page" class="nav-item">
                     <a class="navbar-link" href="{% url 'contact-us' %}">
                         {% if request.COOKIES.language == "AR" %}
                             تواصل معنا
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 {% if user.is_superuser %}
-                    <li class="nav-item">
+                    <li id="requests-page" class="nav-item">
                         {% if show_notifications %}
                             <div id="notification" class="notification"></div>
                         {% else %}

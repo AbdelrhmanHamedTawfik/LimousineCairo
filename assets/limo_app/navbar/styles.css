@@ -85,8 +85,13 @@ html[dir="ltr"] .list-unstyled{
     position: relative;
 }
 
-.nav-item:hover .navbar-link,.nav-item:hover .sub-navbar-text{
+.nav-item:hover .navbar-link, .nav-item:hover .sub-navbar-text{
     color: rgb(211,174,102) !important;
+}
+
+.nav-item.active .navbar-link{
+    color: rgb(211,174,102) !important;
+    font-weight: bold;
 }
 
 .navbar-link{

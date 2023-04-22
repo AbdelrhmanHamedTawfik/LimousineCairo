@@ -1,4 +1,5 @@
 adjustRequests()
+highlightPage("requests-page")
 
 function markAsRead(type, id){
     let url = "update-order"
