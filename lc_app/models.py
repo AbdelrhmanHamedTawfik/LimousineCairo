@@ -62,7 +62,7 @@ class Car(models.Model):
         if self.pk:
             old_record = Car.objects.get(pk=self.pk)
             if old_record:
-                os.rename(os.path.join("media", 'services', old_record.name), os.path.join("media", 'services', self.name))
+                os.rename(os.path.join("media", 'cars', old_record.name), os.path.join("media", 'cars', self.name))
         super().save()
 
     def __str__(self):
