@@ -17,10 +17,17 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from LimousinCairo import settings
+from django.contrib.sitemaps.views import sitemap
+from lc_app.sitemaps import *
+
+sitemaps = {
+		"services": ServiceSitemap
+}
 
 urlpatterns = [
     path('', include('lc_app.urls')),
     path('admin/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

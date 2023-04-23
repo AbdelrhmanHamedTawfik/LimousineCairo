@@ -21,6 +21,12 @@ register.filter('get_decimal', get_decimal)
 register.filter('get_by_index', get_by_index)
 register.filter('get_social_link', get_social_link)
 
+def defineSlug(slug, slug_ar):
+    new_slug = slug.replace(" ", "-")
+    new_slug_ar = slug_ar.replace(" ", "-")
+
+    return new_slug + "#" + new_slug_ar
+
 
 class OverwriteStorage(FileSystemStorage):
     def get_available_name(self, name, max_length=None):

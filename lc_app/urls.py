@@ -13,5 +13,5 @@ urlpatterns = [
     path('request', views.request, name='request'),
     path('order-complain', views.order_complain, name='order-complain'),
     path('update-order', views.update_order, name='update-order'),
-    path('update-complain', views.update_complain, name='update-complain'),
+    path('update-complain', views.update_complain, name='update-complain')
 ]

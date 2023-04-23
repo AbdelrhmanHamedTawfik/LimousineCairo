@@ -2,6 +2,7 @@ import datetime
 import os
 import shutil
 from django.db import models
+from django.urls import reverse
 from django.core.validators import RegexValidator
 from django.core.validators import MaxValueValidator, MinValueValidator 
 from django.db.models.signals import pre_delete
@@ -37,6 +38,9 @@ class Service(models.Model):
     description2 = models.TextField(default="random text")
     description2_ar = models.TextField(default="random text")
     category = models.ForeignKey(Service_category, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("service_details", kwargs={"title": self.title})
 
     def save(self):
         if self.pk:
