@@ -292,8 +292,7 @@ html[dir="rtl"] .social-item:hover{
 }
 
 .parallax {
-    height: 650px; 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("/static/limo_app/images/banner_2.jpg");
+    height: 650px;
     background-attachment: fixed;
     background-position: bottom;
     background-repeat: no-repeat;

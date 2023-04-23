@@ -9,10 +9,6 @@
     object-fit: cover;
 }
 
-.parallax{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("/static/limo_app/images/banner.jpg");
-}
-
 .carousel-indicators{
     bottom: -70px !important;
 }

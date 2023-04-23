@@ -1,7 +1,3 @@
-.parallax{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("/static/limo_app/images/banner_4.jpg");
-}
-
 .footer{
     margin-top: 100px;
 }

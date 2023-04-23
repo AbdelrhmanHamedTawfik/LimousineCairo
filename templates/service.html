@@ -8,7 +8,11 @@
 {% endif %}
 
 <head>
-    <title>LimousinCairo</title>
+    {% if request.COOKIES.language == "AR" %}
+        <title> ليموزين القاهرة - {{Service.title_ar}}</title>
+    {% else %}
+        <title>Limousine Cairo - {{Service.title}}</title>
+    {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{% static 'limo_app/images/logo.png' %}">

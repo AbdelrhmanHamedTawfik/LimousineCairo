@@ -8,7 +8,11 @@
 {% endif %}
 
 <head>
-    <title>LimousinCairo</title>
+    {% if request.COOKIES.language == "AR" %}
+        <title>تواصل مع ليموزين القاهرة</title>
+    {% else %}
+        <title>Contact Limousine Cairo</title>
+    {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{% static 'limo_app/images/logo.png' %}">
@@ -28,9 +32,11 @@
     </div>
     <div class="body-wrapper menuDisplayed">
         <div id="main-body" class="main-body col-lg-12">
-            <div class="parallax">
-                <img src="{% static 'limo_app/images/logo2.png' %}" alt="...">
-            </div>
+            {% with pages_info|get_by_index:3 as page%}
+                <div class="parallax" style="background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url({{page.banner.url}});">
+                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="Contact LimousineCairo - تواصل مع ليموزين القاهرة">
+                </div>
+            {% endwith %}
             <div class="contact-comp">
                 <h2> 
                     {% with pages_info|get_by_index:3 as page%}
