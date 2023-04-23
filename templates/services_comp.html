@@ -84,7 +84,7 @@
                                 {%if cat.service_set.all%}
                                     {% for service in cat.service_set.all %}
                                         <div class="services-item">
-                                            <img src="{{service.thumbnail.url}}" class="services-img">
+                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
                                             <div class="services-img-overlay">
                                                 <p class="fw-bold">
                                                     {% if request.COOKIES.language == "AR" %}
@@ -123,7 +123,7 @@
                                 {%if cat.service_set.all%}
                                     {% for service in cat.service_set.all %}
                                         <div class="services-item">
-                                            <img src="{{service.thumbnail.url}}" class="services-img">
+                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
                                             <div class="services-img-overlay">
                                                 <p class="fw-bold">
                                                     {% if request.COOKIES.language == "AR" %}

@@ -24,7 +24,7 @@
             </p>
             <div class="services-container">
                 <div class="service-icon">
-                    <img src="{% static 'limo_app/images/24-hours-phone-service.png' %}" alt="...">
+                    <img src="{% static 'limo_app/images/24-hours-phone-service.png' %}" alt="LimousineCairo 24/7 - 24/7 ليموزين القاهرة">
                     <br>
                     <h4>
                         {% if request.COOKIES.language == "AR" %}
@@ -35,7 +35,7 @@
                     </h4>
                 </div>
                 <div class="service-icon">
-                    <img src="{% static 'limo_app/images/around-the-world.png' %}" alt="...">
+                    <img src="{% static 'limo_app/images/around-the-world.png' %}" alt="LimousineCairo Globe - حول العالم ليموزين القاهرة">
                     <br>
                     <h4>
                         {% if request.COOKIES.language == "AR" %}
@@ -46,7 +46,7 @@
                     </h4>
                 </div>
                 <div class="service-icon">
-                    <img src="{% static 'limo_app/images/traffic-jam.png' %}" alt="...">
+                    <img src="{% static 'limo_app/images/traffic-jam.png' %}" alt="LimousineCairo Luxurious - رقاهية ليموزين القاهرة">
                     <br>
                     <h4>
                         {% if request.COOKIES.language == "AR" %}
@@ -57,7 +57,7 @@
                     </h4>
                 </div>
                 <div class="service-icon">
-                    <img src="{% static 'limo_app/images/save-money.png' %}" alt="...">
+                    <img src="{% static 'limo_app/images/save-money.png' %}" alt="LimousineCairo Prices - اسعار ليموزين القاهرة">
                     <br>
                     <h4>
                         {% if request.COOKIES.language == "AR" %}
@@ -98,7 +98,7 @@
                 <div class="services-container">
                     {% for service in Services %}
                         <div class="services-item">
-                            <img src="{{service.thumbnail.url}}" class="services-img">
+                            <img src="{{service.thumbnail.url}}" class="services-img" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
                             <div class="services-img-overlay">
                                 <p class="fw-bold">
                                     {% if request.COOKIES.language == "AR" %}
@@ -174,7 +174,7 @@
                 <div class="fleet-container">
                     {% for car in Cars %}
                         <div class="fleet-item">
-                            <img src="{{car.image.url}}" class="car-img" alt="...">
+                            <img src="{{car.image.url}}" class="car-img" alt="LimousineCairo Fleet - اسطول ليموزين القاهرة">
                             <br>
                             <div class="car-details">
                                 <div class="car-name">
@@ -318,7 +318,7 @@
             <br>
             <p>
                 <img src="https://www.leicesterexecutivechauffeurs.co.uk/newsite/wp-content/uploads/2014/03/chauffeurs-hire-966695_960_720.jpg"
-                    alt="Longtail boat in Thailand">
+                alt="LimousineCairo Drivers - سائقين ليموزين القاهرة">
                 {% if request.COOKIES.language == "AR" %}
                     لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
                     صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
