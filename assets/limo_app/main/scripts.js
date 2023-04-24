@@ -131,7 +131,6 @@ function hideLoading(){
 }
 
 function highlightPage(page_id){
-    console.log(page_id)
     $('.navbar-nav li').removeClass("active")
     $('#' + page_id).addClass("active")
 }

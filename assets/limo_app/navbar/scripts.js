@@ -11,7 +11,6 @@ function resetSectionSelection(){
         let scrollY = window.pageYOffset;
         for (let section in sections_data){
             let el = document.querySelectorAll(".sections-buttons .section-item")[section]
-            // console.log(el)
             if (scrollY > sections_data[section].top && scrollY <= sections_data[section].top + sections_data[section].height){
                 el.classList.add("active");
             }else{
