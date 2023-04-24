@@ -146,6 +146,15 @@ class Complain(models.Model):
     def __str__(self):
         return self.name
     
+class History(models.Model):
+    today = datetime.date.today()
+    year = today.year
+    date = models.PositiveIntegerField(default=1900, validators=[MinValueValidator(1990), MaxValueValidator(int(year))])
+    description = models.TextField()
+    description_ar = models.TextField()
+
+    def __str__(self):
+        return str(self.date)
 
 @receiver(pre_delete, sender=Service)
 def my_handler(sender, instance, **kwargs):

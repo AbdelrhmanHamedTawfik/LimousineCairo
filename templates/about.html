@@ -60,102 +60,73 @@
                 <br>
                 <br>
                 <div class="timeline">
-                    <div class="container left">
-                        <div class="content">
-                            <h2>2018</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
+                    {% if History %}
+                        {% for moment in History %}
+                            {% if request.COOKIES.language == "AR" %}
+                                {% if forloop.counter0|divisibleby:2 %}
+                                    <div class="container right">
+                                        <div class="content">
+                                            <h2>{{moment.date}}</h2>
+                                            <p>
+                                                {% if request.COOKIES.language == "AR" %}
+                                                    {{moment.description_ar}}
+                                                {% else %}
+                                                    {{moment.description}}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
                                 {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
+                                    <div class="container left">
+                                        <div class="content">
+                                            <h2>{{moment.date}}</h2>
+                                            <p>
+                                                {% if request.COOKIES.language == "AR" %}
+                                                    {{moment.description_ar}}
+                                                {% else %}
+                                                    {{moment.description}}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
                                 {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="content">
-                            <h2>2019</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
+                            {% else %}
+                                {% if forloop.counter0|divisibleby:2 %}
+                                    <div class="container left">
+                                        <div class="content">
+                                            <h2>{{moment.date}}</h2>
+                                            <p>
+                                                {% if request.COOKIES.language == "AR" %}
+                                                    {{moment.description_ar}}
+                                                {% else %}
+                                                    {{moment.description}}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
                                 {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
+                                    <div class="container right">
+                                        <div class="content">
+                                            <h2>{{moment.date}}</h2>
+                                            <p>
+                                                {% if request.COOKIES.language == "AR" %}
+                                                    {{moment.description_ar}}
+                                                {% else %}
+                                                    {{moment.description}}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
                                 {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container left">
-                        <div class="content">
-                            <h2>2020</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="content">
-                            <h2>2021</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container left">
-                        <div class="content">
-                            <h2>2022</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="content">
-                            <h2>2023</h2>
-                            <p>
-                                {% if request.COOKIES.language == "AR" %}
-                                    لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في
-                                    صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما
-                                    قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع
-                                    شكلي لهذه الأحرف.
-                                {% else %}
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s
-                                {% endif %}
-                            </p>
-                        </div>
-                    </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% if request.COOKIES.language == "AR" %}
+                            لا يوجد لحظات تاريخية في الوقت الحالي
+                        {% else %}
+                            There are no available History moments currently
+                        {% endif %}
+                    {% endif %}
                 </div>
                 <div class="row mt-5 w-100" id="section-7" style="border-top: 2px solid rgb(40, 42, 60);">
                     <div class="col-sm-10 m-auto pt-5 pb-5">
@@ -168,27 +139,37 @@
                         </h2>
                         <br>
                         <div class="testimonials-container">
-                            <div class="testimonials-item card text-center">
-                                <i class="bi bi-quote"></i>
-                                <div class="card-body blockquote">
-                                    <p class="card-text">
-                                        {% if request.COOKIES.language == "AR" %}
-                                            افضل شركة علي الاطلاق
-                                        {% else %}
-                                            Best Company ever
-                                        {% endif %}
-                                    </p>
-                                    <footer class="blockquote-footer">
-                                        <cite title="Source Title">
-                                            {% if request.COOKIES.language == "AR" %}
-                                                محمد
-                                            {% else %}
-                                                Mohamed
-                                            {% endif %}
-                                        </cite>
-                                    </footer>
-                                </div>
-                            </div>
+                            {% if Testimonials %}
+                                {% for testimonial in Testimonials %}
+                                    <div class="testimonials-item card text-center">
+                                        <i class="bi bi-quote"></i>
+                                        <div class="card-body blockquote">
+                                            <p class="card-text">
+                                                {% if request.COOKIES.language == "AR" %}
+                                                    {{testimonial.quote_ar}}
+                                                {% else %}
+                                                    {{testimonial.quote}}
+                                                {% endif %}
+                                            </p>
+                                            <footer class="blockquote-footer">
+                                                <cite title="Source Title">
+                                                    {% if request.COOKIES.language == "AR" %}
+                                                        {{testimonial.name_ar}}
+                                                    {% else %}
+                                                        {{testimonial.name}}
+                                                    {% endif %}
+                                                </cite>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                {% if request.COOKIES.language == "AR" %}
+                                    لا يوجد اراء العملاء في الوقت الحالي
+                                {% else %}
+                                    There are no available testimonials at the moment
+                                {% endif %}
+                            {% endif %}
                         </div>
                         <br>
                     </div>

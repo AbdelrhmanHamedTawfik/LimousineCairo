@@ -40,8 +40,15 @@ def services(request):
     return render(request, 'services_comp.html', context)
 
 def about(request):
+    history = History.objects.all().order_by('date')
+    Testimonials = Testimonial.objects.all()
 
-    return render(request, 'about.html')
+    context = {
+        'History': history,
+        'Testimonials': Testimonials
+    }
+
+    return render(request, 'about.html', context)
 
 def fleet(request):
     Cars_cats = Car_category.objects.all()
