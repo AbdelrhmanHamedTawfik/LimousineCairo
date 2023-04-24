@@ -122,9 +122,9 @@
                         {% endfor %}
                     {% else %}
                         {% if request.COOKIES.language == "AR" %}
-                            لا يوجد لحظات تاريخية في الوقت الحالي
+                            <h4>لا يوجد لحظات تاريخية في الوقت الحالي</h4>
                         {% else %}
-                            There are no available History moments currently
+                            <h4>There are no available History moments currently</h4>
                         {% endif %}
                     {% endif %}
                 </div>
@@ -165,9 +165,9 @@
                                 {% endfor %}
                             {% else %}
                                 {% if request.COOKIES.language == "AR" %}
-                                    لا يوجد اراء العملاء في الوقت الحالي
+                                    <h4>لا يوجد اراء العملاء في الوقت الحالي</h4>
                                 {% else %}
-                                    There are no available testimonials at the moment
+                                    <h4>There are no available testimonials at the moment</h4>
                                 {% endif %}
                             {% endif %}
                         </div>
