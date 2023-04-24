@@ -1,2 +1,4 @@
 Django==4.1.7
-twilio==8.0.0
+django_resized==1.0.2
+django_cleanup==7.0.0
+pillow==9.4.0
