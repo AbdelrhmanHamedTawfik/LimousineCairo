@@ -1,8 +1,8 @@
 {% load static %}
 {% load extras %}
 <i id="top-button" class="bi bi-arrow-up-circle-fill top-button" onclick="scrollToTop()"></i>
-<i class="bi bi-telephone call-button" onclick="scrollToTop()"></i>
-<i class="bi bi-envelope-at-fill mail-button" onclick="scrollToTop()"></i>
+<a class="bi bi-telephone call-button" href="tel:+2{{contact_info.phone_1}}"></a>
+<a class="bi bi-envelope-at-fill mail-button" href="mailto:{{contact_info.email}}"></a>
 <nav class="social">
     <ul class="social-list">
         <a class="social-link" href="{{socials|get_social_link:'Facebook'}}" target="_blank">

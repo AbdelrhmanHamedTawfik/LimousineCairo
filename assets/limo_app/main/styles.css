@@ -72,6 +72,7 @@ html[dir="ltr"] .top-button{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
     line-height: 45px;
     color: rgb(211,174,102);
+    text-decoration: none;
 }
 
 html[dir="rtl"] .call-button{
@@ -100,6 +101,7 @@ html[dir="ltr"] .call-button{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
     line-height: 45px;
     color: rgb(211,174,102);
+    text-decoration: none;
 }
 
 html[dir="rtl"] .mail-button{
