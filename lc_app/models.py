@@ -25,6 +25,7 @@ class Car_category(models.Model):
         return self.title
 
 class Service(models.Model):
+    # add verbose_name for admin display
     title = models.CharField(max_length=200, unique=True)
     title_ar = models.CharField(max_length=200, unique=True)
     thumbnail = ResizedImageField(quality=80, force_format='JPEG', upload_to=extras.PathRename('services', "_thumbnail"), storage=extras.OverwriteStorage())
@@ -38,6 +39,10 @@ class Service(models.Model):
     description2 = models.TextField(default="random text")
     description2_ar = models.TextField(default="random text")
     category = models.ForeignKey(Service_category, on_delete=models.CASCADE)
+
+    # class Meta:
+    #     verbose_name = 'خدمة'
+    #     verbose_name_plural = 'خدمات'
 
     def get_absolute_url(self):
         return reverse("service_details", kwargs={"title": self.title})
