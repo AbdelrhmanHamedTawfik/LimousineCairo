@@ -90,7 +90,6 @@ class Social(models.Model):
     SOCIAL_CHOICES = (
         ('facebook','FaceBook'),
         ('whatsapp', 'Whats App'),
-        ('phone','Mobile'),
         ('instagram','Instagram'),
         ('twitter','Twitter')
     )
