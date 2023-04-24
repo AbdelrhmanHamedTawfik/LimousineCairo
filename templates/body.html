@@ -434,26 +434,37 @@
             </h2>
             <br>
             <div class="testimonials-container">
-                <div class="testimonials-item card text-center">
-                    <i class="bi bi-quote"></i>
-                    <div class="card-body blockquote">
-                        <p class="card-text">
-                            {% if request.COOKIES.language == "AR" %}
-                                افضل شركة علي الاطلاق
-                            {% else %}
-                                Best Company ever
-                            {% endif %}
-                        </p>
-                        <footer class="blockquote-footer">
-                            <cite title="Source Title">
-                                {% if request.COOKIES.language == "AR" %}
-                                    محمد
-                                {% else %}
-                                    Mohamed
-                                {% endif %}
-                            </cite>
-                        </footer>
-                    </div>
+                {% if Testimonials %}
+                        {% for testimonial in Testimonials %}
+                            <div class="testimonials-item card text-center">
+                                <i class="bi bi-quote"></i>
+                                <div class="card-body blockquote">
+                                    <p class="card-text">
+                                        {% if request.COOKIES.language == "AR" %}
+                                            {{testimonial.quote_ar}}
+                                        {% else %}
+                                            {{testimonial.quote}}
+                                        {% endif %}
+                                    </p>
+                                    <footer class="blockquote-footer">
+                                        <cite title="Source Title">
+                                            {% if request.COOKIES.language == "AR" %}
+                                                {{testimonial.name_ar}}
+                                            {% else %}
+                                                {{testimonial.name}}
+                                            {% endif %}
+                                        </cite>
+                                    </footer>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {% if request.COOKIES.language == "AR" %}
+                            لا يوجد اراء العملاء في الوقت الحالي
+                        {% else %}
+                            There are no available testimonials at the moment
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <br>
