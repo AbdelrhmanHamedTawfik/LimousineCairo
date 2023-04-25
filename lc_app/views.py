@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 
@@ -68,6 +69,7 @@ def contact(request):
 
     return render(request, 'contact.html', context)
 
+@login_required(login_url='/')
 def request(request):
     Orders = Order.objects.all()
     Complains = Complain.objects.all()
