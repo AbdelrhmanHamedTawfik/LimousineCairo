@@ -115,27 +115,17 @@
                                         Choose...
                                     {% endif %}
                                 </option>
-                                <option value="VIP">
+                                {% for cat in car_categories%}
                                     {% if request.COOKIES.language == "AR" %}
-                                        في اي بي
+                                        <option value="{{cat.title_ar}}">
+                                            {{cat.title_ar}}
+                                        </option>
                                     {% else %}
-                                        VIP
+                                        <option value="{{cat.title}}">
+                                            {{cat.title}}
+                                        </option>
                                     {% endif %}
-                                </option>
-                                <option value="VAN">
-                                    {% if request.COOKIES.language == "AR" %}
-                                        فان
-                                    {% else %}
-                                        VAN
-                                    {% endif %}
-                                </option>
-                                <option value="SEDAN">
-                                    {% if request.COOKIES.language == "AR" %}
-                                        سيدان
-                                    {% else %}
-                                        SEDAN
-                                    {% endif %}
-                                </option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="mb-3">

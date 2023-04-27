@@ -79,14 +79,14 @@ function validateForm(form_type){
     } else {
         let data = new FormData();
         let name = $('#name-field').val()
-        let phone = $('#phone-field').val()
+        let phone = window.intlTelInputGlobals.getInstance(document.querySelector("#phone-field")).getNumber()
         let date = $('#date-field').val()
         let car = $('#car-field').val()
         let details = $('#details-field').val()
         
         if(form_type != 1){
             name = $('#name-field-2').val()
-            phone = $('#phone-field-2').val()
+            phone = window.intlTelInputGlobals.getInstance(document.querySelector("#phone-field-2")).getNumber()
             details = $('#details-field-2').val()
         }
         
