@@ -1,5 +1,8 @@
 {% load static %}
 {% load extras %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+
 <i id="top-button" class="bi bi-arrow-up-circle-fill top-button" onclick="scrollToTop()"></i>
 <a class="bi bi-telephone call-button" href="tel:+2{{contact_info.phone_1}}"></a>
 <a class="bi bi-envelope-at-fill mail-button" href="mailto:{{contact_info.email}}"></a>
@@ -75,7 +78,7 @@
                             </label>
                             <input type="text" class="form-control" id="name-field" name="name" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex flex-column">
                             <label for="phone-field" class="form-label">
                                 {% if request.COOKIES.language == "AR" %}
                                     هاتف التواصل
@@ -93,7 +96,7 @@
                                     Date
                                 {% endif %}
                             </label>
-                            <input type="date" format="dd/mm/yyyy" class="form-control" id="date-field" name="date"
+                            <input type="date" format="dd/mm/yyyy" class="form-control" id="date-field" name="date" onfocus="this.showPicker()"
                                 required>
                         </div>
                         <div class="col-md-6">
@@ -105,7 +108,13 @@
                                 {% endif %}
                             </label>
                             <select id="car-field" class="form-select" name="car-type" title="Choose..." required>
-                                <option value="" hidden disabled selected>Choose...</option>
+                                <option value="" hidden disabled selected>
+                                    {% if request.COOKIES.language == "AR" %}
+                                        اختر...
+                                    {% else %}
+                                        Choose...
+                                    {% endif %}
+                                </option>
                                 <option value="VIP">
                                     {% if request.COOKIES.language == "AR" %}
                                         في اي بي
@@ -137,8 +146,13 @@
                                     Details
                                 {% endif %}
                             </label>
-                            <textarea class="form-control" placeholder="i want to go airport from mohndseen"
-                                id="details-field" rows="5" name="details" required></textarea>
+                            {% if request.COOKIES.language == "AR" %}
+                                <textarea class="form-control" placeholder="اريد الذهاب الي المطار من الاسكندرية" id="details-field"
+                                    rows="5" name="details" required></textarea>
+                            {% else %}
+                                <textarea class="form-control" placeholder="I want to go to Cairo Airport from Alexandria" id="details-field"
+                                    rows="5" name="details" required></textarea>
+                            {% endif %}
                         </div>
                     </form>
                 </div>
@@ -182,7 +196,7 @@
                             </label>
                             <input type="text" class="form-control" id="name-field-2" name="name" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex flex-column">
                             <label for="phone-field" class="form-label">
                                 {% if request.COOKIES.language == "AR" %}
                                     هاتف التواصل
@@ -200,8 +214,14 @@
                                     Complaines and Suggesstions
                                 {% endif %}
                             </label>
-                            <textarea class="form-control" placeholder="i dont like the driver" id="details-field-2"
-                                rows="5" name="details" required></textarea>
+                            {% if request.COOKIES.language == "AR" %}
+                                <textarea class="form-control" placeholder="لم يعجبني السائق" id="details-field-2"
+                                    rows="5" name="details" required></textarea>
+                            {% else %}
+                                <textarea class="form-control" placeholder="i dont like the driver" id="details-field-2"
+                                    rows="5" name="details" required></textarea>
+                            {% endif %}
+                            
                         </div>
                     </form>
                 </div>
@@ -281,3 +301,13 @@
         </div>
     </div>
 </div>
+<script>
+    let input = document.querySelector("#phone-field");
+    let input_2 = document.querySelector("#phone-field-2");
+    window.intlTelInput(input, {
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+    });
+    window.intlTelInput(input_2, {
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+    });
+</script>
