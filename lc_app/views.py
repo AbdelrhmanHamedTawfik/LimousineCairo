@@ -113,6 +113,9 @@ def order_complain(request):
 
 def update_order(request):
     order = Order.objects.get(pk=request.POST['id'])
+    if not order:
+        return JsonResponse({"success": False}, status=400)
+    
     order.read = True
     order.save()
 
@@ -127,8 +130,20 @@ def update_order(request):
 
     return JsonResponse({"success": True, "show_notifications":show_notifications}, status=200)
 
+def delete_order(request):
+    order = Order.objects.get(pk=request.POST['id'])
+    if not order:
+        return JsonResponse({"success": False}, status=400)
+    
+    order.delete()
+
+    return JsonResponse({"success": True}, status=200)
+
 def update_complain(request):
     complain = Complain.objects.get(pk=request.POST['id'])
+    if not complain:
+        return JsonResponse({"success": False}, status=400)
+    
     complain.read = True
     complain.save()
 
@@ -141,3 +156,12 @@ def update_complain(request):
         show_notifications = True
 
     return JsonResponse({"success": True, "show_notifications":show_notifications}, status=200)
+
+def delete_complain(request):
+    complain = Complain.objects.get(pk=request.POST['id'])
+    if not complain:
+        return JsonResponse({"success": False}, status=400)
+    
+    complain.delete()
+
+    return JsonResponse({"success": True}, status=200)

@@ -42,6 +42,52 @@ function markAsRead(type, id){
     });
 }
 
+function deleteRequest(type, id){
+    let language = getCookie("language")
+    let msg = "Are you sure you want to delete this order?"
+    let msg_2 = "Are you sure you want to delete this complain?"
+    let confirm = false
+
+    if(language == "AR"){
+        msg = "هل انت متاكد انك تريد مسح هذا الطلب؟"
+        msg_2 = "هل انت متاكد انك تريد مسح هذة الشكوي؟"
+    }
+
+    if(type != 1){
+        confirm = window.confirm(msg_2);
+    }else{
+        confirm = window.confirm(msg);
+    }
+
+    if(!confirm){
+        return
+    }
+    
+    let url = "delete-order"
+    let data = new FormData();
+    data.append('id', id);
+
+    if(type != 1){
+        url = "delete-complain"
+    }
+
+    $.ajaxSetup({
+        headers: { "X-CSRFToken": getCookie("csrftoken") }
+    });
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+            if(data.success){
+                window.location.reload()
+            }
+        }
+    });
+}
+
 function adjustRequests(){
     if($(window).width() < 800) {
         let orders = document.querySelectorAll(".bookings-item")

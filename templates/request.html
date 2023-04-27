@@ -131,23 +131,23 @@
                                     </div>
                                 </div>
                                 <div class="bookings-item-footer row g-3 m-auto">
-                                    <button type="button" class="btn read-more-outter mt-0 call">
+                                    <a type="button" class="btn read-more-outter mt-0 call" href="tel:{{order.phone}}" onclick="markAsRead(1,'{{order.pk}}')">
                                         <i class="bi bi-telephone"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             اتصل
                                         {% else %}
                                             Call
                                         {% endif %}
-                                    </button>
-                                    <button type="button" class="btn read-more-outter mt-0 whats">
+                                    </a>
+                                    <a type="button" class="btn read-more-outter mt-0 whats" href="https://wa.me/{{order.phone}}" onclick="markAsRead(1,'{{order.pk}}')">
                                         <i class="bi bi-whatsapp"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             ارسل
                                         {% else %}
                                             Message
                                         {% endif %}
-                                    </button>
-                                    <button type="button" class="btn read-more-outter mt-0 danger">
+                                    </a>
+                                    <button type="button" class="btn read-more-outter mt-0 danger" onclick="deleteRequest(1,'{{order.pk}}')">
                                         <i class="bi bi-x-circle"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             الغاء
@@ -237,23 +237,23 @@
                                     </div>
                                 </div>
                                 <div class="complains-item-footer row g-3 m-auto">
-                                    <button type="button" class="btn read-more-outter mt-0 call">
+                                    <a type="button" class="btn read-more-outter mt-0 call" href="tel:{{complain.phone}}" onclick="markAsRead(2,'{{complain.pk}}')">
                                         <i class="bi bi-telephone"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             اتصل
                                         {% else %}
                                             Call
                                         {% endif %}
-                                    </button>
-                                    <button type="button" class="btn read-more-outter mt-0 whats">
+                                    </a>
+                                    <a type="button" class="btn read-more-outter mt-0 whats" href="https://wa.me/{{complain.phone}}" onclick="markAsRead(2,'{{complain.pk}}')"> 
                                         <i class="bi bi-whatsapp"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             ارسل
                                         {% else %}
                                             Message
                                         {% endif %}
-                                    </button>
-                                    <button type="button" class="btn read-more-outter mt-0 danger">
+                                    </a>
+                                    <button type="button" class="btn read-more-outter mt-0 danger" onclick="deleteRequest(2,'{{complain.pk}}')">
                                         <i class="bi bi-x-circle"></i>
                                         {% if request.COOKIES.language == "AR" %}
                                             الغاء

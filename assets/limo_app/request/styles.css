@@ -58,47 +58,47 @@
     padding: 20px;
 }
 
-.bookings-item-footer button, .complains-item-footer button{
+.bookings-item-footer .btn, .complains-item-footer .btn{
     max-width: 150px;
     color: rgb(40, 42, 60) !important;
     border-color: rgb(40, 42, 60) !important;
     margin: 15px;
 }
 
-.bookings-item-footer button.danger, .complains-item-footer button.danger{
+.bookings-item-footer .btn.danger, .complains-item-footer .btn.danger{
     max-width: 150px;
     color: rgb(182, 3, 3) !important;
     border-color: rgb(182, 3, 3) !important;
     transition: 0.3s;
 }
 
-.bookings-item-footer button.danger:hover, .complains-item-footer button.danger:hover{
+.bookings-item-footer .btn.danger:hover, .complains-item-footer .btn.danger:hover{
     max-width: 150px;
     color: white !important;
     background-color: rgb(182, 3, 3) !important;
 }
 
-.bookings-item-footer button.whats, .complains-item-footer button.whats{
+.bookings-item-footer .btn.whats, .complains-item-footer .btn.whats{
     max-width: 150px;
     color: #25D366 !important;
     border-color: #25D366 !important;
     transition: 0.3s;
 }
 
-.bookings-item-footer button.whats:hover, .complains-item-footer button.whats:hover{
+.bookings-item-footer .btn.whats:hover, .complains-item-footer .btn.whats:hover{
     max-width: 150px;
     color: white !important;
     background-color: #25D366 !important;
 }
 
-.bookings-item-footer button.call, .complains-item-footer button.call{
+.bookings-item-footer .btn.call, .complains-item-footer .btn.call{
     max-width: 150px;
     color: #3b5998 !important;
     border-color: #3b5998 !important;
     transition: 0.3s;
 }
 
-.bookings-item-footer button.call:hover, .complains-item-footer button.call:hover{
+.bookings-item-footer .btn.call:hover, .complains-item-footer .btn.call:hover{
     max-width: 150px;
     color: white !important;
     background-color: #3b5998 !important;
