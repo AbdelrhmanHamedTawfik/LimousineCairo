@@ -1,0 +1,54 @@
+.footer{
+    margin-top: 100px;
+}
+
+.contact-comp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+    color: rgb(40, 42, 60);
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap;
+    margin-top: 50px !important;
+    margin: auto;
+}
+
+.contact-item {
+    border-bottom: 3px rgb(211, 174, 102) solid !important;
+    transition: 0.5s;
+    margin: 30px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: black;
+}
+
+.contact-item i {
+    background-color: rgb(211, 174, 102);
+    color: #ffffff;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    margin: -40px auto 0 auto;
+    border-radius: 50%;
+    font-size: 30px;
+}
+
+.top-card{
+    margin-top: -50px;
+}
+
+.read-more-outter{
+    color: rgb(40, 42, 60) !important;
+    border-color: rgb(40, 42, 60) !important;
+    width: 200px;
+}

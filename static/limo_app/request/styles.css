@@ -1,0 +1,133 @@
+.requests-comp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.requests-comp .form-control{
+    border: 2px solid rgb(40, 42, 60);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: transparent;
+}
+
+.requests-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 2px solid rgb(40, 42, 60);
+    border-radius: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.bookings-item, .complains-item{
+    width: 45%;
+    min-height: 250px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    border: 2px solid rgb(40, 42, 60);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* background-color: rgb(255, 255, 255); */
+    margin: 20px;
+    padding: 15px;
+}
+
+.bookings-item.collapsed, .complains-item.collapsed{
+    height: 50px;
+    overflow: hidden;
+    min-height: 50px;
+    padding: 0;
+}
+
+.bookings-item.collapsed .row>*, .complains-item.collapsed .row>*{
+    margin-top: 0 !important;
+}
+
+.bookings-item-footer, .complains-item-footer{
+    border-top: 2px solid rgb(40, 42, 60);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.bookings-item-footer .btn, .complains-item-footer .btn{
+    max-width: 150px;
+    color: rgb(40, 42, 60) !important;
+    border-color: rgb(40, 42, 60) !important;
+    margin: 15px;
+}
+
+.bookings-item-footer .btn.danger, .complains-item-footer .btn.danger{
+    max-width: 150px;
+    color: rgb(182, 3, 3) !important;
+    border-color: rgb(182, 3, 3) !important;
+    transition: 0.3s;
+}
+
+.bookings-item-footer .btn.danger:hover, .complains-item-footer .btn.danger:hover{
+    max-width: 150px;
+    color: white !important;
+    background-color: rgb(182, 3, 3) !important;
+}
+
+.bookings-item-footer .btn.whats, .complains-item-footer .btn.whats{
+    max-width: 150px;
+    color: #25D366 !important;
+    border-color: #25D366 !important;
+    transition: 0.3s;
+}
+
+.bookings-item-footer .btn.whats:hover, .complains-item-footer .btn.whats:hover{
+    max-width: 150px;
+    color: white !important;
+    background-color: #25D366 !important;
+}
+
+.bookings-item-footer .btn.call, .complains-item-footer .btn.call{
+    max-width: 150px;
+    color: #3b5998 !important;
+    border-color: #3b5998 !important;
+    transition: 0.3s;
+}
+
+.bookings-item-footer .btn.call:hover, .complains-item-footer .btn.call:hover{
+    max-width: 150px;
+    color: white !important;
+    background-color: #3b5998 !important;
+}
+
+.new-icon{
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.new-icon.read{
+    color: gray;
+    cursor: default;
+}
+
+.text-area{
+    max-height: 150px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+@media (max-width: 800px){
+    .bookings-item, .complains-item{
+        width: 90%;
+    }
+
+    .requests-container{
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,526 @@
+#section-2,
+#section-4,
+#section-6 {
+    background-color: rgb(40, 42, 60);
+    color: white;
+}
+
+#section-3 .read-more-outter{
+    color: rgb(40, 42, 60) !important;
+    border-color: rgb(40, 42, 60) !important;
+}
+
+#section-3 .read-more-outter:hover{
+    color: rgb(211, 174, 102) !important;
+    border-color: rgb(211, 174, 102) !important;
+}
+
+#sepcial-section{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    background-image: url("/static/limo_app/images/promo-banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 50px !important;
+}
+
+.read-more-outter.special:hover{
+    color: white !important;
+    border-color: white !important;
+    background-color: rgb(211, 174, 102) !important;
+}
+
+#sepcial-section h2{
+    color: white;
+}
+
+#sepcial-section .bi{
+    font-size: 40px;
+}
+
+.service-icon {
+    border: 2px solid;
+    border-color: rgb(40, 42, 60);
+    border-radius: 10px;
+    padding: 10px;
+    height: 200px;
+    width: 250px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.service-icon:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 15px;
+}
+
+.service-icon img {
+    width: 90px;
+    height: 90px;
+}
+
+.service-icon h4 {
+    color: rgb(40, 42, 60);
+    line-height: 10px;
+    margin-top: 30px !important;
+}
+
+.sections {
+    margin-top: 100px;
+}
+
+.section h2 {
+    color: rgb(211, 174, 102);
+}
+
+.section {
+    text-align: center;
+    margin-bottom: 50px;
+    pointer-events: all;
+    transition: 0.8s;
+    margin-top: 100px !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    justify-content: center;
+}
+
+.services-container,
+.fleet-container,
+.drivers-container,
+.testimonials-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap;
+    margin-top: 50px !important;
+    width: 80%;
+    margin: auto;
+}
+
+.services-item {
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 10px;
+}
+
+.services-img {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    object-fit: cover;
+}
+
+.services-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    text-align: start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgb(211, 174, 102, 0.7) 0%, rgba(77, 77, 77, 0.7) 100%);
+    z-index: 1;
+    transition: 0.3s;
+    padding: 20px 10px;
+    font-size: 20px;
+}
+
+.services-item:hover {
+    transform: scale(0.98)
+}
+
+.services-item:hover .services-img {
+    transform: scale(1.1)
+}
+
+.services-item:hover .services-img-overlay {
+    background-color: rgb(211, 174, 102, 0.5);
+}
+
+.read-more {
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    color: white !important;
+    margin-top: 50px;
+}
+
+.read-more:hover {
+    background-color: rgb(40, 42, 60) !important;
+}
+
+.read-more-outter {
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    color: white !important;
+    margin-top: 100px;
+}
+
+.read-more-outter:hover {
+    border: 2px solid rgb(211, 174, 102) !important;
+    color: rgb(211, 174, 102) !important;
+}
+
+.fleet-item {
+    padding: 10px;
+    height: 380px;
+    width: 300px;
+    margin: 10px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: rgb(40, 42, 60);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(40, 42, 60);
+}
+
+.fleet-item .car-img:hover {
+    transform: scale(1.7);
+}
+
+.car-img {
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.car-details {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+}
+
+.car-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.car-model {
+    border: dashed 2px rgb(40, 42, 60);
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.car-specs {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.car-specs .bi {
+    color: rgb(211, 174, 102);
+}
+
+.car-specs-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.car-details-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.car-details-footer .btn {
+    border: 1px solid rgb(40, 42, 60);
+    color: rgb(40, 42, 60);
+}
+
+.car-details-footer .btn:hover {
+    border-color: rgb(211, 174, 102);
+    color: rgb(211, 174, 102);
+}
+
+.car-details-separator {
+    border-top: 1px solid;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.testimonials-item {
+    border-bottom: 3px rgb(211, 174, 102) solid !important;
+    transition: 0.5s;
+    margin: 30px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: black;
+}
+
+.testimonials-item i {
+    background-color: rgb(211, 174, 102);
+    color: #ffffff;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    margin: -40px auto 0 auto;
+    border-radius: 50%;
+}
+
+.section-icon {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 50%;
+    background-color: rgb(211, 174, 102);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: absolute;
+    top: -30px;
+}
+
+.section-icon .bi {
+    font-size: 45px;
+}
+
+.map {
+    width: 90%;
+    height: 600px;
+}
+
+.driver-section p {
+    text-align: justify;
+}
+
+.driver-section img {
+    width: 400px;
+    height: 400px;
+    float: right;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+@media (max-width: 800px){
+    .driver-section img {
+        float: left;
+        width: 350px;
+        height: 300px;
+    }
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.vert-line{
+    width: 5px;
+    height: 400px;
+    background-color: rgb(211, 174, 102);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.social-inner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+@media (max-width: 740px){
+    .social-inner-container {
+        flex-direction: column;
+    }
+
+    .contact-booking {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1290px){
+    .vert-line{
+        width: 80% !important;
+        height: 5px !important;
+        margin: auto !important;
+    }
+}
+
+@media (max-width: 1290px){
+    .contact-container{
+        flex-direction: column !important;
+    }
+}
+
+.contact-social {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 400px;
+}
+
+.contact-booking {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 400px;
+}
+
+.contact-booking-item{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    height: 150px;
+    margin: 20px;
+    word-wrap: break-word;
+}
+
+.contact-booking-item .bi{
+    font-size: 40px;
+}
+
+.contact-social-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    transition: 1s;
+    margin: 10px;
+}
+
+.contact-social-item.facebook:hover {
+    background-color: #3b5998;
+}
+
+.contact-social-item.facebook:before, .contact-social-item.facebook:after{
+    border-color: #3b5998 !important;
+}
+
+.contact-social-item.twitter:hover {
+    background-color: #00acee;
+}
+
+.contact-social-item.twitter:before, .contact-social-item.twitter:after{
+    border-color: #00acee !important;
+}
+
+.contact-social-item.whatsapp:hover {
+    background-color: #25D366;
+}
+
+.contact-social-item.whatsapp:before, .contact-social-item.whatsapp:after{
+    border-color: #25D366 !important;
+}
+
+.contact-social-item.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    transition: background 1s ease-out;
+}
+
+.contact-social-item.instagram:before, .contact-social-item.instagram:after{
+    border-color: #bc1888 !important;
+}
+
+.contact-social-item .bi{
+    font-size: 35px;
+}
+
+.contact-social-item.active:before{
+    content: "";
+    position: absolute;
+    left:0;
+    top:0;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    animation: border-top-right 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contact-social-item.active:after{
+    content: "";
+    position: absolute;
+    right:0;
+    bottom:0;
+    border-bottom:2px solid transparent;
+    border-left: 2px solid transparent;
+    animation: border-bottom-left 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.contact-social-item.in-active:before{
+    content: "";
+    position: absolute;
+    left:0;
+    top:0;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    animation: border-top-right 1s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+
+.contact-social-item.in-active:after{
+    content: "";
+    position: absolute;
+    right:0;
+    bottom:0;
+    border-bottom:2px solid transparent;
+    border-left: 2px solid transparent;
+    animation: border-bottom-left 1s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+
+@keyframes border-top-right {
+    0%    {width:0px;   height:0px; opacity: 0;}
+    5%    {width:0px;   height:0px; opacity: 1;}
+    25%   {width:100px; height:0px;}
+    50%   {width:100px; height:100px;}
+    100%  {width:100px; height:100px;}
+}
+
+@keyframes border-bottom-left {
+    0%    {width:0px;   height:0px; opacity: 0;}
+    50%   {width:0px;   height:0px; opacity: 0;}
+    50.1% {width:0px;   height:0px; opacity: 1;}
+    75%   {width:100px; height:0px; opacity: 1;}
+    100%  {width:100px; height:100px;opacity: 1;}
+}
