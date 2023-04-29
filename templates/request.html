@@ -9,9 +9,9 @@
 
 <head>
     {% if request.COOKIES.language == "AR" %}
-        <title>طلبات ليموزين القاهرة</title>
+        <title>طلبات ليموزين مطار القاهرة</title>
     {% else %}
-        <title>Limousine Cairo Requests</title>
+        <title>Cairo Airport Limousine Requests</title>
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +34,7 @@
         <div id="main-body" class="main-body col-lg-12">
             {% with pages_info|get_by_index:4 as page%}
                 <div class="parallax" style="background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url({{page.banner.url}});">
-                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="LimousineCairo Requests - طلبات ليموزين القاهرة">
+                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="Cairo Airport Limousine Requests - طلبات ليموزين مطار القاهرة">
                 </div>
             {% endwith %}
             <div class="requests-comp mt-5">

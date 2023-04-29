@@ -33,7 +33,7 @@
         <div id="main-body" class="main-body col-lg-12">
             {% with pages_info|get_by_index:1 as page%}
                 <div class="parallax" style="background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url({{page.banner.url}});">
-                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
+                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="Cairo Airport Limousine Services - خدمات ليموزين مطار القاهرة">
                 </div>
             {% endwith %}
             <div class="services-comp">
@@ -84,7 +84,7 @@
                                 {%if cat.service_set.all%}
                                     {% for service in cat.service_set.all %}
                                         <div class="services-item">
-                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
+                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="Cairo Airport Limousine Services - خدمات ليموزين مطار القاهرة">
                                             <div class="services-img-overlay">
                                                 <p class="fw-bold">
                                                     {% if request.COOKIES.language == "AR" %}
@@ -123,7 +123,7 @@
                                 {%if cat.service_set.all%}
                                     {% for service in cat.service_set.all %}
                                         <div class="services-item">
-                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="LimousineCairo Services - خدمات ليموزين القاهرة">
+                                            <img src="{{service.thumbnail.url}}" class="services-img" alt="Cairo Airport Limousine Services - خدمات ليموزين مطار القاهرة">
                                             <div class="services-img-overlay">
                                                 <p class="fw-bold">
                                                     {% if request.COOKIES.language == "AR" %}

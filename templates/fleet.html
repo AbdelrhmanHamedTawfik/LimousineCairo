@@ -9,9 +9,9 @@
 
 <head>
     {% if request.COOKIES.language == "AR" %}
-        <title>اسطول ليموزين القاهرة</title>
+        <title>اسطول ليموزين مطار القاهرة</title>
     {% else %}
-        <title>Limousine Cairo Fleet</title>
+        <title>Cairo Airport Limousine Fleet</title>
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,7 +85,7 @@
                                 {%if cat.car_set.all%}
                                     {% for car in cat.car_set.all %}
                                         <div class="fleet-item">
-                                            <img src="{{car.image.url}}" class="car-img" alt="LimousineCairo Fleet - اسطول ليموزين القاهرة">
+                                            <img src="{{car.image.url}}" class="car-img" alt="Cairo Airport Limousine Fleet - اسطول ليموزين مطار القاهرة">
                                             <br>
                                             <div class="car-details">
                                                 <div class="car-name">
@@ -156,7 +156,7 @@
                                 {%if cat.car_set.all%}
                                     {% for car in cat.car_set.all %}
                                         <div class="fleet-item">
-                                            <img src="{{car.image.url}}" class="car-img" alt="LimousineCairo Fleet - اسطول ليموزين القاهرة">
+                                            <img src="{{car.image.url}}" class="car-img" alt="Cairo Airport Limousine Fleet - اسطول ليموزين مطار القاهرة">
                                             <br>
                                             <div class="car-details">
                                                 <div class="car-name">

@@ -9,16 +9,16 @@
 
 <head>
     {% if request.COOKIES.language == "AR" %}
-        <title>ليموزين القاهرة</title>
+        <title>ليموزين مطار القاهرة - 01000161277</title>
     {% else %}
-        <title>Limousine Cairo</title>
+        <title>Cairo Airport Limousine - 01000161277</title>
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="ليموزين مطار القاهرة
     , ليموزين المطار  , ليموزين مطار برج العرب , ليموزين الاسكندرية , ليموزين الساحل الشمالي, 
     Limousine Cairo, Airport Limousine, Alexandria Limousine">
-    <meta name="description" content="LimousineCairo is the best Limousine company to prvoid the luxurious experiance and the comfort of home when traveling -
+    <meta name="description" content="Cairo Airport Limousine is the best Limousine company to prvoid the luxurious experiance and the comfort of home when traveling -
      شركة ليموزين القاهرة هي افضل شركة حيث تقدم تجربة الرفاهية والراحة المنزلية اثناء رحلاتك">
     <link rel="icon" type="image/x-icon" href="{% static 'limo_app/images/logo.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'limo_app/main/styles.css' %}">
@@ -37,7 +37,7 @@
         <div id="main-body" class="main-body col-lg-12">
             {% with pages_info|get_by_index:0 as page%}
                 <div class="parallax" style="background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url({{page.banner.url}});">
-                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="LimousineCairo - ليموزين القاهرة">
+                    <img src="{% static 'limo_app/images/logo2.png' %}" alt="Cairo Airport Limousine - ليموزين ليموزين مطار القاهرة">
                 </div>
             {% endwith %}
             {% include 'body.html' %}
