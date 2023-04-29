@@ -9,9 +9,9 @@
 
 <head>
     {% if request.COOKIES.language == "AR" %}
-        <title> ليموزين القاهرة - {{Service.title_ar}}</title>
+        <title>خدمات ليموزين مطار القاهرة - {{Service.title_ar}}</title>
     {% else %}
-        <title>Limousine Cairo - {{Service.title}}</title>
+        <title>Cairo Airport Limousine Services - {{Service.title}}</title>
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,7 +147,7 @@
                                                         {{service.summary}}
                                                     {% endif %}
                                                 </p>
-                                                <a type="button" class="btn read-more-outter mt-0" href="{% url 'service' title=ser.title %}">
+                                                <a type="button" class="btn read-more-outter mt-0" href="services/{{service.slug}}">
                                                     {% if request.COOKIES.language == "AR" %}
                                                         المزيد
                                                     {% else %}

@@ -114,7 +114,7 @@
                                         {{service.summary}}
                                     {% endif %}
                                 </p>
-                                <a type="button" class="btn read-more" href="{% url 'service' title=service.title %}">
+                                <a type="button" class="btn read-more" href="services/{{service.slug}}">
                                     {% if request.COOKIES.language == "AR" %}
                                         المزيد
                                     {% else %}

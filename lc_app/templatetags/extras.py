@@ -25,7 +25,7 @@ def defineSlug(slug, slug_ar):
     new_slug = slug.replace(" ", "-")
     new_slug_ar = slug_ar.replace(" ", "-")
 
-    return new_slug + "#" + new_slug_ar
+    return str(new_slug + "-" + new_slug_ar)
 
 
 class OverwriteStorage(FileSystemStorage):

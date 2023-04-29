@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 import os
 import shutil
@@ -34,20 +35,22 @@ class Service(models.Model):
     summary_ar = models.CharField(max_length=100)
     slider_image_1 = ResizedImageField(quality=80, force_format='JPEG', upload_to=extras.PathRename('services', "_Slider_1"), storage=extras.OverwriteStorage())
     slider_image_2 = ResizedImageField(quality=80, force_format='JPEG', upload_to=extras.PathRename('services', "_Slider_2"), storage=extras.OverwriteStorage())
-    description = models.TextField()
+    description = models.TextField(blank=True)
     description_ar = models.TextField()
     description2 = models.TextField(default="random text")
     description2_ar = models.TextField(default="random text")
     category = models.ForeignKey(Service_category, on_delete=models.CASCADE)
+    slug = models.SlugField(default="", editable=False)
 
     # class Meta:
     #     verbose_name = 'خدمة'
     #     verbose_name_plural = 'خدمات'
 
     def get_absolute_url(self):
-        return reverse("service_details", kwargs={"title": self.title})
+        return reverse("services/", kwargs={"slug": self.slug})
 
     def save(self):
+        self.slug = extras.defineSlug(self.title, self.title_ar)
         if self.pk:
             old_record = Service.objects.get(pk=self.pk)
             if old_record:
@@ -113,8 +116,8 @@ class Map(models.Model):
 class ContactInfo(models.Model):
     address = models.CharField(max_length=1000)
     address_ar = models.CharField(max_length=1000)
-    phone_1 = models.CharField(max_length=11, validators=[RegexValidator(r'^\d{1,10}$')])
-    phone_2 = models.CharField(max_length=11, validators=[RegexValidator(r'^\d{1,10}$')])
+    phone_1 = models.CharField(max_length=11, validators=[RegexValidator(r'^\d{1,11}$')])
+    phone_2 = models.CharField(max_length=11, validators=[RegexValidator(r'^\d{1,11}$')])
     email = models.EmailField(max_length=254)
 
     def __str__(self):

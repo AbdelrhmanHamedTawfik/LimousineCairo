@@ -20,8 +20,8 @@ def index(request):
     
     return render(request, 'index.html', context)
 
-def service(request, title):
-    service = Service.objects.get(title=str(title))
+def service(request, slug):
+    service = Service.objects.get(slug=slug)
     category = Service_category.objects.get(pk=service.category.pk)
 
     context = {

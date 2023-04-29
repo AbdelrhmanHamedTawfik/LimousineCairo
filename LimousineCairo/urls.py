@@ -21,7 +21,8 @@ from django.contrib.sitemaps.views import sitemap
 from lc_app.sitemaps import *
 
 sitemaps = {
-		"services": ServiceSitemap
+		"services": ServiceSitemap,
+        "static": StaticSitemap,
 }
 
 urlpatterns = [
