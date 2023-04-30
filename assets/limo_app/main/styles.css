@@ -294,15 +294,22 @@ html[dir="rtl"] .social-item:hover{
 }
 
 .parallax {
-    height: 650px;
+    max-height: 650px;
     background-attachment: fixed;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 55px;
+}
+
+@media screen and (max-width: 768px) {
+	.parallax {
+		background-attachment: inherit;
+	}
 }
 
 .parallax img, .loading-screen img{
