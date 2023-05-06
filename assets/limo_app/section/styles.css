@@ -1,6 +1,7 @@
 #section-2,
 #section-4,
-#section-6 {
+#section-6,
+#section-8{
     background-color: rgb(40, 42, 60);
     color: white;
 }
@@ -284,7 +285,7 @@
     color: black;
 }
 
-.testimonials-item i {
+.testimonials-item .bi-quote {
     background-color: rgb(211, 174, 102);
     color: #ffffff;
     width: 75px;
@@ -507,6 +508,32 @@
     animation: border-bottom-left 1s ease-in-out;
     animation-fill-mode: forwards;
     animation-direction: reverse;
+}
+
+.rating-star{
+    font-size: 20px;
+    margin: 5px;
+    color: rgb(40, 42, 60);
+    transition: 0.3s;
+}
+
+.rating-star.active{
+    color: gold;
+}
+
+.review-star{
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+    
+}
+
+.review-star.active{
+    color: gold !important;
+}
+
+.review-star-container{
+    cursor: pointer;
 }
 
 @keyframes border-top-right {

@@ -47,7 +47,7 @@ class Service(models.Model):
     #     verbose_name_plural = 'خدمات'
 
     def get_absolute_url(self):
-        return reverse("services/", kwargs={"slug": self.slug})
+        return reverse("service", kwargs={"slug": self.slug})
 
     def save(self):
         self.slug = extras.defineSlug(self.title, self.title_ar)
@@ -84,9 +84,8 @@ class Car(models.Model):
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=200)
-    name_ar = models.CharField(max_length=200)
     quote = models.CharField(max_length=500)
-    quote_ar = models.CharField(max_length=500)
+    rating = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(5)])
 
     def __str__(self):
         return self.name

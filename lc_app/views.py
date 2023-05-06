@@ -165,3 +165,13 @@ def delete_complain(request):
     complain.delete()
 
     return JsonResponse({"success": True}, status=200)
+
+def insert_review(request):
+    name = request.POST['name']
+    quote = request.POST['quote']
+    rating = request.POST['rating']
+    new_testimonial = Testimonial.objects.create(name=name, quote=quote, rating=rating)
+    if not new_testimonial:
+        return JsonResponse({"success": False}, status=400)
+
+    return JsonResponse({"success": True}, status=200)

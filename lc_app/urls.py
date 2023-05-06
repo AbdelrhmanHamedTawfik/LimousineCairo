@@ -15,4 +15,5 @@ urlpatterns = [
     path('update-complain', views.update_complain, name='update-complain'),
     path('delete-order', views.delete_order, name='delete-order'),
     path('delete-complain', views.delete_complain, name='delete-complain'),
+    path('insert-review', views.insert_review, name='insert-review'),
 ]

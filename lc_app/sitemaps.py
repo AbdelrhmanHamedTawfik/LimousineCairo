@@ -4,7 +4,7 @@ from django.urls import reverse
 from .models import *
 
 class ServiceSitemap(Sitemap):
-	changefreq = "daily"
+	changefreq = "weekly"
 	priority = 1
 	
 	def items(self):
@@ -12,9 +12,6 @@ class ServiceSitemap(Sitemap):
 	
 	def lastmod(self, obj):
 		return datetime.date.today()
-	
-	def location(self,obj):
-		return '/services/%s' % (obj.slug)
 	
 class StaticSitemap(Sitemap):
     changefreq = "weekly"
